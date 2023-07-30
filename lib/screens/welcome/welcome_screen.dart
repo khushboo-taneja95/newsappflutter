@@ -8,21 +8,21 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Column(
-              children: [
-                SizedBox(
-                  width: double.infinity,
-                  height: 200.0,
-                  child: Image.network(
-                      'https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg',
-                      fit: BoxFit.fill),
-                ),
-                Expanded(
-                  child: Container(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 200.0,
+                    child: Image.network(
+                        'https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg',
+                        fit: BoxFit.fill),
+                  ),
+                  Container(
                     color: Colors.white,
                     child: Center(
                       child: Column(
@@ -195,27 +195,27 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
-              ],
-            ),
-            const Positioned(
-              top: 150.0,
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.blue,
+                ],
+              ),
+              const Positioned(
+                top: 150.0,
+                child: Align(
+                  alignment: Alignment.topCenter,
                   child: CircleAvatar(
-                    radius: 45,
-                    backgroundColor: Colors.white,
+                    radius: 50,
+                    backgroundColor: Colors.blue,
                     child: CircleAvatar(
-                        radius: 125,
-                        backgroundImage: AssetImage('assets/logo.png')),
+                      radius: 45,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                          radius: 125,
+                          backgroundImage: AssetImage('assets/logo.png')),
+                    ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
