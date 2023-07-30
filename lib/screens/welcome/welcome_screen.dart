@@ -208,8 +208,8 @@ class WelcomeScreen extends StatelessWidget {
                       radius: 45,
                       backgroundColor: Colors.white,
                       child: CircleAvatar(
-                          radius: 125,
-                          backgroundImage: AssetImage('assets/logo.png')),
+                          radius:50,
+                          backgroundImage: AssetImage('assets/logowithback.png',)),
                     ),
                   ),
                 ),
