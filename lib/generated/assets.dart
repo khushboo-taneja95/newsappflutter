@@ -16,6 +16,5 @@ class Assets {
   static const String assetsIcPrivacypolicy = 'assets/ic_privacypolicy.png';
   static const String assetsIcRateTheApp = 'assets/ic_rate_the_app.png';
   static const String assetsLogo = 'assets/logo.png';
-  static const String assetsLogowithback = 'assets/logowithback.png';
 
 }
