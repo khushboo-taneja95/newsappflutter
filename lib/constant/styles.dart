@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:newsapplication/constant/colors.dart';
 
-class NewsAppStyles {
+class PanthalassaStyles {
   static const otherOptionsText = TextStyle(
-      color: NewsAppColors.colorBlack,
+      color: PanthalassaColors.colorBlack,
       fontWeight: FontWeight.bold,
       fontSize: 19);
 }

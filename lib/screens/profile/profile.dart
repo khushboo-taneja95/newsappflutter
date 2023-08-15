@@ -55,10 +55,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: const EdgeInsets.only(left: 15, right: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: NewsAppColors.cardColor,
+          color: PanthalassaColors.cardColor,
           boxShadow: [
             BoxShadow(
-              color: NewsAppColors.shadowColor.withOpacity(0.1),
+              color: PanthalassaColors.shadowColor.withOpacity(0.1),
               spreadRadius: 1,
               blurRadius: 1,
               offset: const Offset(0, 1),
@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           alignment: Alignment.topLeft,
           child: Text(
             'Others Options',
-            style: NewsAppStyles.otherOptionsText,
+            style: PanthalassaStyles.otherOptionsText,
           ),
         ),
       ),
@@ -99,10 +99,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         padding: const EdgeInsets.only(left: 15, right: 15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: NewsAppColors.cardColor,
+          color: PanthalassaColors.cardColor,
           boxShadow: [
             BoxShadow(
-              color: NewsAppColors.shadowColor.withOpacity(0.1),
+              color: PanthalassaColors.shadowColor.withOpacity(0.1),
               spreadRadius: 1,
               blurRadius: 1,
               offset: const Offset(0, 1),
@@ -166,9 +166,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 100,
                   width: 100,
                   decoration: BoxDecoration(
-                    color: NewsAppColors.profilePicBackgroundColor,
+                    color: PanthalassaColors.profilePicBackgroundColor,
                     borderRadius: const BorderRadius.all(Radius.circular(50)),
-                    border: Border.all(color: NewsAppColors.inputBorderColor),
+                    border: Border.all(color: PanthalassaColors.inputBorderColor),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -182,7 +182,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               const Text(
                 "Junaid Ansari",
-                style: NewsAppStyles.otherOptionsText,
+                style: PanthalassaStyles.otherOptionsText,
               ),
               const SizedBox(
                 height: 5,

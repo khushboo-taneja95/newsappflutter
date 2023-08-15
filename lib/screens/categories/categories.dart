@@ -24,7 +24,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.2),
+                (MediaQuery.of(context).size.height / 1.0),
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 10.0,
           ),
@@ -72,11 +72,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.blue,
-                        fontSize: 18),
+                        fontSize: 14),
                   ),
                   Text(
                     '3.1k Articles',
-                    style: TextStyle(color: Colors.black, fontSize: 14),
+                    style: TextStyle(color: Colors.black, fontSize: 12),
                   ),
                   SizedBox(
                     height: 5,

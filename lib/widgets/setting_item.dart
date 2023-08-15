@@ -27,7 +27,7 @@ class SettingItem extends StatelessWidget {
                     blurRadius: 5.0,
                     offset: Offset(0.0, 0.75))
               ],
-              color: NewsAppColors.appColor,
+              color: PanthalassaColors.appColor,
               borderRadius: BorderRadius.circular(50 / 2),
             ),
             child: Center(

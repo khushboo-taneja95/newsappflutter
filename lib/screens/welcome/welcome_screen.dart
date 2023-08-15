@@ -8,8 +8,8 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -18,9 +18,10 @@ class WelcomeScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     height: 200.0,
-                    child: Image.network(
-                        'https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg',
-                        fit: BoxFit.fill),
+                    child: Image.asset(
+                      "assets/news_images.jpg",
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   Container(
                     color: Colors.white,
@@ -28,7 +29,7 @@ class WelcomeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           const SizedBox(
-                            height: 90,
+                            height: 60,
                           ),
                           const Text.rich(
                             TextSpan(
@@ -58,7 +59,12 @@ class WelcomeScreen extends StatelessWidget {
                             height: 30,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (ctx) => HomeNavigation()));
+                            },
                             child: Container(
                               height: 50,
                               margin: const EdgeInsets.only(
@@ -67,7 +73,7 @@ class WelcomeScreen extends StatelessWidget {
                               decoration: const BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
-                                  color: NewsAppColors.colorBlack),
+                                  color: PanthalassaColors.colorBlack),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -75,7 +81,7 @@ class WelcomeScreen extends StatelessWidget {
                                     "assets/applelogo.png",
                                     height: 30,
                                     width: 30,
-                                    color: NewsAppColors.colorWhite,
+                                    color: PanthalassaColors.colorWhite,
                                   ),
                                   const SizedBox(
                                     width: 10,
@@ -90,7 +96,12 @@ class WelcomeScreen extends StatelessWidget {
                             ),
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (ctx) => HomeNavigation()));
+                            },
                             child: Container(
                               height: 50,
                               margin: const EdgeInsets.all(15.0),
@@ -120,7 +131,12 @@ class WelcomeScreen extends StatelessWidget {
                             ),
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (ctx) => HomeNavigation()));
+                            },
                             child: Container(
                               height: 50,
                               margin: const EdgeInsets.only(
@@ -129,7 +145,7 @@ class WelcomeScreen extends StatelessWidget {
                               decoration: const BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
-                                  color: NewsAppColors.fecebookbtn),
+                                  color: PanthalassaColors.fecebookbtn),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -152,10 +168,10 @@ class WelcomeScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(
-                            height: 80,
+                            height: 40,
                           ),
-                          const SizedBox(
-                            height: 50,
+                          const Padding(
+                            padding: EdgeInsets.only(bottom: 20.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -171,50 +187,30 @@ class WelcomeScreen extends StatelessWidget {
                           const SizedBox(
                             height: 10,
                           ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (ctx) => HomeNavigation()));
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: NewsAppColors.appColor,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: const Text(
-                                'SKIP NOW',
-                                style:
-                                    TextStyle(color: NewsAppColors.colorWhite),
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                     ),
                   ),
                 ],
               ),
-              const Positioned(
+              Positioned(
                 top: 150.0,
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.blue,
-                    child: FittedBox(
-                      fit: BoxFit.fitHeight,
-                      child: CircleAvatar(
-                          radius: 45,
-                          backgroundImage: AssetImage(
-                            'assets/logowithback.png',
-                          )),
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: PanthalassaColors.appColor,
                     ),
+                    image: const DecorationImage(
+                        image: AssetImage(
+                          'assets/logowithback.png',
+                        ),
+                        fit: BoxFit.fill),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

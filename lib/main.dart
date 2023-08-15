@@ -13,9 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Panthalassa',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+       theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: "Panthalassa"
+      ),
         home: const SplashScreen());
         // home: HomeNavigation(index: 0));
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-class NewsAppColors {
+class PanthalassaColors {
   static const Color appColor = Color(0xff1a05ca);
   static const Color paymentButton = Color(0xff30C9CD);
   static const Color textColor = Color(0xFF575757);

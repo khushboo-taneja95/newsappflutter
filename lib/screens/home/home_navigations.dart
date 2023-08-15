@@ -4,6 +4,7 @@ import 'package:newsapplication/screens/categories/categories.dart';
 import 'package:newsapplication/screens/favourite/favourite.dart';
 import 'package:newsapplication/screens/home/home_screen.dart';
 import 'package:newsapplication/screens/profile/profile.dart';
+import 'package:newsapplication/screens/welcome/welcome_screen.dart';
 import 'package:newsapplication/widgets/setting_item.dart';
 
 class HomeNavigation extends StatefulWidget {
@@ -77,19 +78,19 @@ class _HomeNavigationState extends State<HomeNavigation> {
             ],
           )
         ],
-        backgroundColor: NewsAppColors.appColor,
+        backgroundColor: PanthalassaColors.appColor,
       ),
       drawer: Drawer(
         child: getDrawer(),
       ),
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: NewsAppColors.bottomTapColor,
+        backgroundColor: PanthalassaColors.bottomTapColor,
         elevation: 16,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: NewsAppColors.appColor,
-        unselectedItemColor: NewsAppColors.bottomTapUnselectedColor,
+        selectedItemColor: PanthalassaColors.appColor,
+        unselectedItemColor: PanthalassaColors.bottomTapUnselectedColor,
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -101,7 +102,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               "assets/home.png",
               width: 25,
               height: 23,
-              color: NewsAppColors.appColor,
+              color: PanthalassaColors.appColor,
             ),
             label: 'Home',
           ),
@@ -115,7 +116,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               "assets/categories.png",
               width: 25,
               height: 23,
-              color: NewsAppColors.appColor,
+              color: PanthalassaColors.appColor,
             ),
             label: 'Categories',
           ),
@@ -129,7 +130,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               "assets/favourite.png",
               width: 25,
               height: 23,
-              color: NewsAppColors.appColor,
+              color: PanthalassaColors.appColor,
             ),
             label: 'Favourite',
           ),
@@ -143,7 +144,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               "assets/account.png",
               width: 30,
               height: 28,
-              color: NewsAppColors.appColor,
+              color: PanthalassaColors.appColor,
             ),
             label: 'Profile',
           ),
@@ -244,50 +245,56 @@ class _HomeNavigationState extends State<HomeNavigation> {
               ],
             ),
           ),
-          Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 50.0, left: 10.0),
-                child: Column(
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.black54,
-                                    blurRadius: 5.0,
-                                    offset: Offset(0.0, 0.75))
-                              ],
-                              color: NewsAppColors.colorRed,
-                              borderRadius: BorderRadius.circular(50 / 2),
-                            ),
-                            child: Center(
-                              child: Image.asset(
-                                'assets/ic_logout.png',
-                                width: 22,
-                                height: 22,
-                                color: Colors.white,
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (ctx) => const WelcomeScreen()));
+            },
+            child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 50.0, left: 10.0),
+                  child: Column(
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                      color: Colors.black54,
+                                      blurRadius: 5.0,
+                                      offset: Offset(0.0, 0.75))
+                                ],
+                                color: PanthalassaColors.colorRed,
+                                borderRadius: BorderRadius.circular(50 / 2),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  'assets/ic_logout.png',
+                                  width: 22,
+                                  height: 22,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Expanded(
-                            child: Text(
-                              'Logout',
-                              style: TextStyle(fontSize: 16),
+                            const SizedBox(
+                              width: 10,
                             ),
-                          ),
-                        ]),
-                  ],
-                ),
-              ))
+                            const Expanded(
+                              child: Text(
+                                'Logout',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ]),
+                    ],
+                  ),
+                )),
+          )
         ]),
       ),
     );

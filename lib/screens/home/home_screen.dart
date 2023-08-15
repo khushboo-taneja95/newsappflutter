@@ -21,11 +21,82 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            getCategories(),
+            const Divider(),
             breakingNews(),
             const Divider(),
             getPopularStories(),
             const Divider(),
             getRecentUpdates(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget getCategories() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 80,
+          child: ListView.builder(
+            itemCount: 10,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return categoriesTopSlider();
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget categoriesTopSlider() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, right: 8, left: 8),
+      child: SizedBox(
+        width: 120,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(1.5),
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color(0xffc34a8f),
+                      Color(0xffc34a8f),
+                    ],
+                  ),
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 4,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                // color: Colors.red,
+                child: const Center(
+                  child: Text(
+                    'Cricketer',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        color: PanthalassaColors.aboutUsCardBackgroud),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -46,13 +117,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     "Breaking News",
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
                   Icon(
                     Icons.arrow_forward_ios_rounded,
                     size: 25,
-                    color: NewsAppColors.appColor,
+                    color: PanthalassaColors.appColor,
                   )
                 ],
               ),
@@ -68,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     gradient: const LinearGradient(
                       colors: [
                         Colors.black,
-                        NewsAppColors.appColor,
+                        PanthalassaColors.appColor,
                       ],
                     ),
                     borderRadius: BorderRadius.circular(35),
@@ -85,7 +156,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: const Center(
                         child: Text(
                           'See All',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12),
                         ),
                       ),
                     ),
@@ -132,10 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
         //   ),
         // ],
         image: const DecorationImage(
-            image: NetworkImage(
-              "https://cdn.theatlantic.com/thumbor/B37bXmrzbEGO9Cmhd0RKVqaOnaI=/0x0:2000x1125/960x540/media/img/2022/12/0123_DIS_Koren_Overview_1/original.jpg",
-            ),
-            fit: BoxFit.cover),
+            image: AssetImage("assets/palito.jpg"), fit: BoxFit.cover),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
@@ -147,12 +216,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: NewsAppColors.appColor,
+                    color: PanthalassaColors.appColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: const Text(
                     'Space',
-                    style: TextStyle(color: NewsAppColors.colorWhite),
+                    style: TextStyle(color: PanthalassaColors.colorWhite),
                   ),
                 ),
               ),
@@ -160,14 +229,15 @@ class _HomeScreenState extends State<HomeScreen> {
             const Positioned(
               left: 20.0,
               bottom: 50.0,
+              right: 10.0,
               child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    "Sky Perfect JSAT order first",
+                    "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
                   )),
@@ -187,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     '5 Hour',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 12,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -210,7 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     '25',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 12,
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -238,7 +308,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   "Popular Stories",
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
@@ -253,7 +323,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       gradient: const LinearGradient(
                         colors: [
                           Colors.black,
-                          NewsAppColors.appColor,
+                          PanthalassaColors.appColor,
                         ],
                       ),
                       borderRadius: BorderRadius.circular(35),
@@ -270,7 +340,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: const Center(
                           child: Text(
                             'See More',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 12),
                           ),
                         ),
                       ),
@@ -310,7 +381,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   maxWidth: MediaQuery.of(context).size.width - 205,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(18.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -318,11 +389,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            "Sky Perfect JSAT order first Airbus satelite",
-                            maxLines: 2,
+                            "Sky Perfect JSAT order first Airbus satelite Sky Perfect JSAT order first Airbus satelite",
+                            maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
                           )),
@@ -334,13 +405,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               Container(
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                  color: NewsAppColors.appColor,
+                                  color: PanthalassaColors.appColor,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: const Text(
                                   'Space',
                                   style: TextStyle(
-                                      color: NewsAppColors.colorWhite),
+                                      color: PanthalassaColors.colorWhite),
                                 ),
                               ),
                               const SizedBox(
@@ -356,7 +427,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               const Text(
                                 '25',
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 12,
                                   color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -375,8 +446,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        "https://st2.depositphotos.com/1026550/7026/i/450/depositphotos_70260873-stock-photo-planet-earth-from-the-space.jpg",
+                      child: Image.asset(
+                        "assets/space.jpg",
                         width: 100,
                         height: 100,
                         fit: BoxFit.cover,
@@ -397,7 +468,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           '5 Hour',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 12,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                           ),
@@ -425,7 +496,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 "Recent Updates",
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
               const Spacer(),
@@ -440,7 +511,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     gradient: const LinearGradient(
                       colors: [
                         Colors.black,
-                        NewsAppColors.appColor,
+                        PanthalassaColors.appColor,
                       ],
                     ),
                     borderRadius: BorderRadius.circular(35),
@@ -457,7 +528,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: const Center(
                         child: Text(
                           'See More',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12),
                         ),
                       ),
                     ),
@@ -494,8 +566,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(
-                    "https://st2.depositphotos.com/1026550/7026/i/450/depositphotos_70260873-stock-photo-planet-earth-from-the-space.jpg",
+                  child: Image.asset(
+                    "assets/space.jpg",
                   ),
                 ),
               ),
@@ -513,7 +585,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
                               height: 1.5),
                         )),
@@ -530,7 +602,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                           ),
@@ -545,7 +617,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text(
                           '1 Day Ago',
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 12,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
                           ),
@@ -563,7 +635,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             '25',
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 12,
                               color: Colors.grey,
                               fontWeight: FontWeight.bold,
                             ),
