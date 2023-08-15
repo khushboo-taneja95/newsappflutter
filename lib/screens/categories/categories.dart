@@ -19,7 +19,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           itemCount: 20,
           controller: scrollController,
           itemBuilder: (context, index) {
-            return astrologyCardList();
+            return categoriesCardList();
           },
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -33,7 +33,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     );
   }
 
-  Widget astrologyCardList() {
+  Widget categoriesCardList() {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, right: 8.0, left: 8.0),
       child: Card(

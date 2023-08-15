@@ -47,7 +47,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
             return IconButton(
               icon: const Icon(
                 Icons.menu,
-                color: Colors.white,
+                color: Colors.black,
               ),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
@@ -55,8 +55,15 @@ class _HomeNavigationState extends State<HomeNavigation> {
             );
           },
         ),
-        title: const Row(
-          children: [Text("News App")],
+        title:  Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+                'assets/logowithback.png',
+                height: 50,
+                width: 150,
+            )
+          ],
         ),
         actions: <Widget>[
           Row(
@@ -64,21 +71,21 @@ class _HomeNavigationState extends State<HomeNavigation> {
               IconButton(
                 icon: const Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 onPressed: () {},
               ),
               IconButton(
                 icon: const Icon(
                   Icons.notification_add,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 onPressed: () {},
               ),
             ],
           )
         ],
-        backgroundColor: PanthalassaColors.appColor,
+        backgroundColor: PanthalassaColors.colorWhite,
       ),
       drawer: Drawer(
         child: getDrawer(),

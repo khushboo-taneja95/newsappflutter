@@ -195,14 +195,6 @@ class _HomeScreenState extends State<HomeScreen> {
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: Colors.grey.withOpacity(0.5),
-        //     spreadRadius: 5,
-        //     blurRadius: 7,
-        //     offset: const Offset(0, 2),
-        //   ),
-        // ],
         image: const DecorationImage(
             image: AssetImage("assets/palito.jpg"), fit: BoxFit.cover),
       ),
@@ -210,22 +202,6 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(30),
         child: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Positioned(
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: PanthalassaColors.appColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Text(
-                    'Space',
-                    style: TextStyle(color: PanthalassaColors.colorWhite),
-                  ),
-                ),
-              ),
-            ),
             const Positioned(
               left: 20.0,
               bottom: 50.0,
