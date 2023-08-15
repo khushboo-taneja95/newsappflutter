@@ -35,7 +35,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   Widget categoriesCardList() {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0, right: 8.0, left: 8.0),
+      padding: const EdgeInsets.only(top: 2.0, right: 8.0, left: 8.0),
       child: Card(
         clipBehavior: Clip.antiAlias,
         elevation: 2,
@@ -44,11 +44,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(0.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
-                  'https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg',
+                  'https://img.freepik.com/premium-psd/psd-world-population-day-poster-many-people-are-seeing-worlds-population-problem_583949-56.jpg?size=626&ext=jpg&ga=GA1.2.1756380491.1692118192&semt=sph',
                   height: 250,
                   fit: BoxFit.cover,
                 ),
@@ -77,9 +77,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   Text(
                     '3.1k Articles',
                     style: TextStyle(color: Colors.black, fontSize: 12),
-                  ),
-                  SizedBox(
-                    height: 5,
                   ),
                 ],
               ),

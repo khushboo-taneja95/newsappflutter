@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 // color: Colors.red,
                 child: const Center(
                   child: Text(
-                    'Cricketer',
+                    'Top News',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
@@ -196,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         image: const DecorationImage(
-            image: AssetImage("assets/palito.jpg"), fit: BoxFit.cover),
+            image: AssetImage("assets/kiara.jpg"), fit: BoxFit.cover),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
@@ -214,6 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 14,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   )),
@@ -225,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Icon(
                     Icons.punch_clock,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                   SizedBox(
                     width: 5,
@@ -234,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     '5 Hour',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -248,7 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Icon(
                     Icons.favorite,
-                    color: Colors.black,
+                    color: Colors.red,
                   ),
                   SizedBox(
                     width: 5,
@@ -257,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     '25',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.black,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -367,8 +368,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Text(
                             "Sky Perfect JSAT order first Airbus satelite Sky Perfect JSAT order first Airbus satelite",
                             maxLines: 4,
+                            selectionColor:Colors.black,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
+                              color: Colors.black,
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
@@ -395,7 +398,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               const Icon(
                                 Icons.favorite,
-                                color: Colors.grey,
+                                color: Colors.red,
                               ),
                               const SizedBox(
                                 width: 5,
@@ -404,7 +407,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 '25',
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: Colors.grey,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -423,7 +426,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
-                        "assets/space.jpg",
+                        "assets/space.jpeg",
                         width: 100,
                         height: 100,
                         fit: BoxFit.cover,
@@ -436,7 +439,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Icon(
                           Icons.punch_clock,
-                          color: Colors.grey,
+                          color: Colors.black,
                         ),
                         SizedBox(
                           width: 5,
@@ -445,7 +448,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           '5 Hour',
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.grey,
+                            color: Colors.green,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -543,7 +546,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
-                    "assets/space.jpg",
+                    "assets/space.jpeg",
                   ),
                 ),
               ),
@@ -562,6 +565,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontSize: 14,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                               height: 1.5),
                         )),
@@ -579,7 +583,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.grey,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         )),
@@ -594,7 +598,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           '1 Day Ago',
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.grey,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -603,7 +607,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Icon(
                             Icons.favorite,
-                            color: Colors.grey,
+                            color: Colors.red,
                           ),
                           SizedBox(
                             width: 5,
@@ -612,7 +616,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             '25',
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.grey,
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

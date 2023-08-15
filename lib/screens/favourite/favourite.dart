@@ -25,13 +25,14 @@ class FavouriteScreen extends StatelessWidget {
         children: [
           Row(
             children: [
-              Flexible(
-                child: Text(
+                Flexible(
+                child:Text(
                   "Sky Perfect JSAT order first Airbus satelite Sky Perfect JSAT order first Airbus satelite",
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 14,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -41,7 +42,7 @@ class FavouriteScreen extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
-                    "assets/space.jpg",
+                    "assets/space.jpeg",
                     width: 100,
                     height: 130,
                     fit: BoxFit.cover,

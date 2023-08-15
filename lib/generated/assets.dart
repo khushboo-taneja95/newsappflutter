@@ -15,6 +15,12 @@ class Assets {
   static const String assetsIcNotifications = 'assets/ic_notifications.png';
   static const String assetsIcPrivacypolicy = 'assets/ic_privacypolicy.png';
   static const String assetsIcRateTheApp = 'assets/ic_rate_the_app.png';
+  static const String assetsKiara = 'assets/kiara.jpg';
   static const String assetsLogo = 'assets/logo.png';
+  static const String assetsLogowithback = 'assets/logowithback.png';
+  static const String assetsNewsImages = 'assets/news_images.png';
+  static const String assetsPalito = 'assets/palito.jpg';
+  static const String assetsSpace = 'assets/space.jpeg';
+  static const String fontsPanthalassa = 'assets/fonts/Panthalassa.ttf';
 
 }
