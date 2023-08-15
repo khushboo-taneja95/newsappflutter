@@ -8,13 +8,12 @@ class FavouriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Expanded(
-              child: ListView.builder(
+          child: ListView.builder(
         itemCount: 20,
         itemBuilder: (context, index) {
           return favouriteCardList();
         },
-      ))),
+      )),
     );
   }
 
