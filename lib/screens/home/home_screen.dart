@@ -9,6 +9,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<String> topCat = [
+    "Top News",
+    "State",
+    "Life",
+    "Bollywood",
+    "Cricket",
+    "Women",
+    "Country",
+    "Carrier",
+    "Original",
+    "Utility"
+  ];
   @override
   void initState() {
     super.initState();
@@ -41,10 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
         SizedBox(
           height: 80,
           child: ListView.builder(
-            itemCount: 10,
+            itemCount: topCat.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return categoriesTopSlider();
+              return categoriesTopSlider(topCat[index].toString());
             },
           ),
         ),
@@ -52,18 +64,18 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget categoriesTopSlider() {
+  Widget categoriesTopSlider(String topCat) {
     return Padding(
       padding: const EdgeInsets.only(top: 8, right: 8, left: 8),
       child: SizedBox(
-        width: 120,
+        width: 100,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.all(1.5),
               child: Container(
-                height: 50,
+                height: 30,
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: [
@@ -86,9 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 // color: Colors.red,
-                child: const Center(
+                child:   Center(
                   child: Text(
-                    'Top News',
+                    topCat,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
@@ -209,11 +221,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
+                    "Kiara Advani discussed her most recent birthday vacation with her husband, actor Siddharth Malhotra. Sid and Kiara were spotted taking a vacation in Italy's Amalfi Coast.",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),

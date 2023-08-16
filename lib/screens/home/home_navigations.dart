@@ -59,7 +59,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-                'assets/logowithback.png',
+                'assets/logo.png',
                 height: 50,
                 width: 150,
             )
