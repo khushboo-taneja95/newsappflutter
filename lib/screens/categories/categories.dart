@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapplication/widgets/responsive_utils.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
@@ -12,6 +13,22 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    int columnsCount = 2;
+
+    // Define the icon size based on the screen width
+    double iconSize =  45;
+
+
+    // Use the ResponsiveUtils class to determine the device's screen size.
+    if (ResponsiveUtils.isMobile(context)) {
+      columnsCount = 2;
+      iconSize = 30;
+    } else if (ResponsiveUtils.isDesktop(context)) {
+      columnsCount = 4;
+      iconSize = 50;
+    }
+    
+  
     return Scaffold(
       body: SafeArea(
         child: GridView.builder(
@@ -22,11 +39,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             return categoriesCardList();
           },
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.0),
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 10.0,
+            crossAxisCount: columnsCount,
+          // Set the aspect ratio of each card.
+          childAspectRatio: 1.3 / 2,
+            mainAxisSpacing: 0.0,
+            crossAxisSpacing: 0.0,
           ),
         ),
       ),
@@ -36,53 +53,39 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget categoriesCardList() {
     return Padding(
       padding: const EdgeInsets.only(top: 2.0, right: 8.0, left: 8.0),
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        elevation: 2,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(0.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                  'https://img.freepik.com/premium-psd/psd-world-population-day-poster-many-people-are-seeing-worlds-population-problem_583949-56.jpg?size=626&ext=jpg&ga=GA1.2.1756380491.1692118192&semt=sph',
-                  height: 250,
-                  fit: BoxFit.cover,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                "assets/space.jpeg",
+                height: 250,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 10),
+            child: Column(
+              children: [
+                Text(
+                  "TECHNOLOGY",
+                  maxLines: 3,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                      fontSize: 14),
                 ),
-              ),
+                Text(
+                  '3.1k Articles',
+                  style: TextStyle(color: Colors.black, fontSize: 12),
+                ),
+              ],
             ),
-            // Padding(
-            //   padding: const EdgeInsets.all(20.0),
-            //   child: Image.network(
-            //     'https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg',
-            //     height: 250,
-            //     fit: BoxFit.cover,
-            //   ),
-            // ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Column(
-                children: [
-                  Text(
-                    "TECHNOLOGY",
-                    maxLines: 3,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                        fontSize: 14),
-                  ),
-                  Text(
-                    '3.1k Articles',
-                    style: TextStyle(color: Colors.black, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
