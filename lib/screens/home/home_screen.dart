@@ -380,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Text(
                             "Sky Perfect JSAT order first Airbus satelite Sky Perfect JSAT order first Airbus satelite",
                             maxLines: 4,
-                            selectionColor:Colors.black,
+                            selectionColor: Colors.black,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: Colors.black,
@@ -549,42 +549,24 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Card(
         color: Colors.white,
         elevation: 2,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15, bottom: 5.0),
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.asset(
-                    "assets/space.jpeg",
-                  ),
-                ),
+        child: Column(
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                "assets/space.jpeg",
+                height: 150.0,
+                width: double.infinity,
+                fit: BoxFit.cover,
               ),
-              const SizedBox(
-                height: 5,
-              ),
-              const Column(
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 5, right: 5, bottom: 5.0),
+              child: Column(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "Sky Perfect JSAT order first Airbus satelite",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              height: 1.5),
-                        )),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
                   Padding(
                     padding: EdgeInsets.only(left: 8.0),
                     child: Align(
@@ -641,8 +623,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
