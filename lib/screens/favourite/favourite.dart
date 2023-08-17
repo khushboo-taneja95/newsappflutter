@@ -19,7 +19,7 @@ class FavouriteScreen extends StatelessWidget {
 
   Widget favouriteCardList() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(left :8.0, right: 8.0, top: 8.0, bottom: 4.0),
       child: Card(
           child: Column(
         children: [
@@ -29,11 +29,9 @@ class FavouriteScreen extends StatelessWidget {
                 child:Text(
                   "Sky Perfect JSAT order first Airbus satelite Sky Perfect JSAT order first Airbus satelite",
                   maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 12,
                     color: Colors.black,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -43,8 +41,8 @@ class FavouriteScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
                     "assets/space.jpeg",
-                    width: 100,
-                    height: 130,
+                    width: 50,
+                    height: 60,
                     fit: BoxFit.cover,
                   ),
                 ),
