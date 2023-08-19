@@ -175,22 +175,16 @@ class _HomeNavigationState extends State<HomeNavigation> {
               padding: EdgeInsets.zero,
               children: [
                 const DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            "https://www.shutterstock.com/image-photo/skyscrapers-low-angle-view-modern-260nw-1035769717.jpg")),
-                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+
                       Text(
-                        "NEWS LINE",
+                        "Panthalassa",
                         style: TextStyle(
                             fontSize: 22.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.white),
+                            color: Colors.black),
                       ),
                       SizedBox(
                         height: 5,
@@ -200,13 +194,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
                         style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.white70),
+                            color: Colors.black),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(5,0, 5,0),
                   child: SettingItem(
                     title: "Bookmarks",
                     leadingIcon: "assets/ic_bookmarks.png",
@@ -218,7 +212,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(5,0, 5,0),
                   child: SettingItem(
                     title: "Get Notifications",
                     leadingIcon: "assets/ic_notifications.png",
@@ -230,7 +224,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(5,0, 5,0),
                   child: SettingItem(
                     title: "Privacy Policy",
                     leadingIcon: "assets/ic_privacypolicy.png",
@@ -242,7 +236,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(5,0, 5,0),
                   child: SettingItem(
                     title: "Rate This App",
                     leadingIcon: "assets/ic_rate_the_app.png",

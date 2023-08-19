@@ -61,7 +61,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
                 "assets/space.jpeg",
-                height: 250,
+                height: 200,
                 fit: BoxFit.cover,
               ),
             ),

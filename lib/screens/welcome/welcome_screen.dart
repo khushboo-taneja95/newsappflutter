@@ -193,21 +193,25 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Positioned(
-                top: 150.0,
-                child: Container(
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: PanthalassaColors.appColor,
+              Visibility(
+                visible: false,
+                child: Positioned(
+                  top: 150.0,
+                  child: Container(
+                    width: 80,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        width: 5,
+                        color: PanthalassaColors.appColor,
+                      ),
+                      image: const DecorationImage(
+                          image: AssetImage(
+                            'assets/logowithback.png',
+                          ),
+                          fit: BoxFit.fill),
                     ),
-                    image: const DecorationImage(
-                        image: AssetImage(
-                          'assets/logowithback.png',
-                        ),
-                        fit: BoxFit.fill),
                   ),
                 ),
               ),

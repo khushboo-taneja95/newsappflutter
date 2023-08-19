@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:newsapplication/constant/colors.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget{
   const HomeScreen({Key? key, this.callBack});
   final Function(int)? callBack;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
+   var _bottomNavIndex = 0; //default index of a first screen
+  late AnimationController _fabAnimationController;
+  late AnimationController _borderRadiusAnimationController;
+  late Animation<double> fabAnimation;
+  late Animation<double> borderRadiusAnimation;
+  late CurvedAnimation fabCurve;
+  late CurvedAnimation borderRadiusCurve;
+  late AnimationController _hideBottomBarAnimationController;
+
+  final iconList = <IconData>[
+    Icons.brightness_5,
+    Icons.brightness_4,
+    Icons.brightness_6,
+    Icons.brightness_7,
+  ];
   List<String> topCat = [
     "Top News",
     "State",
@@ -24,26 +40,78 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _fabAnimationController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _borderRadiusAnimationController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    );
+    fabCurve = CurvedAnimation(
+      parent: _fabAnimationController,
+      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+    );
+    borderRadiusCurve = CurvedAnimation(
+      parent: _borderRadiusAnimationController,
+      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+    );
+
+    fabAnimation = Tween<double>(begin: 0, end: 1).animate(fabCurve);
+    borderRadiusAnimation = Tween<double>(begin: 0, end: 1).animate(
+      borderRadiusCurve,
+    );
+
+    _hideBottomBarAnimationController = AnimationController(
+      duration: Duration(milliseconds: 200),
+      vsync: this,
+    );
+
+    Future.delayed(
+      Duration(seconds: 1),
+          () => _fabAnimationController.forward(),
+    );
+    Future.delayed(
+      Duration(seconds: 1),
+          () => _borderRadiusAnimationController.forward(),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            getCategories(),
-            const Divider(),
-            breakingNews(),
-            const Divider(),
-            getPopularStories(),
-            const Divider(),
-            getRecentUpdates(),
-          ],
-        ),
+      body: Container(), //destination screen
+      floatingActionButton: FloatingActionButton(onPressed: () {  },
+        //params
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        icons: iconList,
+        activeIndex: _bottomNavIndex,
+        gapLocation: GapLocation.center,
+        notchSmoothness: NotchSmoothness.verySmoothEdge,
+        leftCornerRadius: 32,
+        rightCornerRadius: 32,
+        onTap: (index) => setState(() => _bottomNavIndex = index),
+        //other params
       ),
     );
+    // return Scaffold(
+    //   body: SingleChildScrollView(
+    //     child: Column(
+    //       crossAxisAlignment: CrossAxisAlignment.stretch,
+    //       children: [
+    //         getCategories(),
+    //         const Divider(),
+    //         breakingNews(),
+    //         const Divider(),
+    //         getPopularStories(),
+    //         const Divider(),
+    //         getRecentUpdates(),
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 
   Widget getCategories() {
