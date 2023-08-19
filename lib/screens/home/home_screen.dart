@@ -136,10 +136,40 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(1.5),
-              child: Container(
+              child: i==0?Container(
                 height: 50,
                 decoration: BoxDecoration(
-                  color: condition ? const Color(0xffFFD0AA) : Colors.white,
+                  color: PanthalassaColors.appColor,
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 4,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                // color: Colors.red,
+                child: Center(
+                  child: Text(
+                    topCat,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        color: condition
+                            ? const Color(0xffFC9535)
+                            : const Color(0xffA1A1A1)),
+                  ),
+                ),
+              ):Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.white,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
