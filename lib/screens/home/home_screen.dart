@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/screens/breaking_news/breaking_news.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, this.callBack});
@@ -115,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: topCat.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return categoriesTopSlider(topCat[index].toString(),index);
+                return categoriesTopSlider(topCat[index].toString(), index);
               },
             ),
           ),
@@ -123,7 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  Widget categoriesTopSlider(String topCat,int i) {
+
+  Widget categoriesTopSlider(String topCat, int i) {
     return Padding(
       padding: const EdgeInsets.only(
         top: 8,
@@ -136,67 +138,69 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(1.5),
-              child: i==0?Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: PanthalassaColors.appColor,
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: const Offset(0, 3),
+              child: i == 0
+                  ? Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: PanthalassaColors.appColor,
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 4,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      // color: Colors.red,
+                      child: Center(
+                        child: Text(
+                          topCat,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              color: condition
+                                  ? const Color(0xffFC9535)
+                                  : const Color(0xffA1A1A1)),
+                        ),
+                      ),
+                    )
+                  : Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 4,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      // color: Colors.red,
+                      child: Center(
+                        child: Text(
+                          topCat,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                              color: condition
+                                  ? const Color(0xffFC9535)
+                                  : const Color(0xffA1A1A1)),
+                        ),
+                      ),
                     ),
-                  ],
-                ),
-                // color: Colors.red,
-                child: Center(
-                  child: Text(
-                    topCat,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                        color: condition
-                            ? const Color(0xffFC9535)
-                            : const Color(0xffA1A1A1)),
-                  ),
-                ),
-              ):Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                // color: Colors.red,
-                child: Center(
-                  child: Text(
-                    topCat,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                        color: condition
-                            ? const Color(0xffFC9535)
-                            : const Color(0xffA1A1A1)),
-                  ),
-                ),
-              ),
             ),
           ],
         ),
@@ -291,82 +295,88 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget breakingNewsSlider() {
-    return Container(
-      height: 200,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        image: const DecorationImage(
-            image: AssetImage("assets/kiara.jpg"), fit: BoxFit.cover),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: const Stack(
-          children: [
-            Positioned(
-              left: 20.0,
-              bottom: 50.0,
-              right: 10.0,
-              child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
-            ),
-            Positioned(
-              left: 20.0,
-              bottom: 10.0,
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.punch_clock,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '5 Hour',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: ((context) => BreakingNewsDetails())));
+      },
+      child: Container(
+        height: 200,
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          image: const DecorationImage(
+              image: AssetImage("assets/kiara.jpg"), fit: BoxFit.cover),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: const Stack(
+            children: [
+              Positioned(
+                left: 20.0,
+                bottom: 50.0,
+                right: 10.0,
+                child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
               ),
-            ),
-            Positioned(
-              right: 20.0,
-              bottom: 10.0,
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '25',
-                    style: TextStyle(
-                      fontSize: 12,
+              Positioned(
+                left: 20.0,
+                bottom: 10.0,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.punch_clock,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '5 Hour',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              Positioned(
+                right: 20.0,
+                bottom: 10.0,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '25',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
