@@ -11,6 +11,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool condition = true;
+  List<String> topCat = [
+    "Top News",
+    "State",
+    "Life",
+    "Bollywood",
+    "Cricket",
+    "Women",
+    "Country",
+    "Carrier",
+    "Original",
+    "Utility"
+  ];
   @override
   void initState() {
     super.initState();
@@ -100,10 +112,10 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 80,
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: topCat.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return categoriesTopSlider();
+                return categoriesTopSlider(topCat[index].toString(),index);
               },
             ),
           ),
@@ -111,8 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  Widget categoriesTopSlider() {
+  Widget categoriesTopSlider(String topCat,int i) {
     return Padding(
       padding: const EdgeInsets.only(
         top: 8,
@@ -146,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 // color: Colors.red,
                 child: Center(
                   child: Text(
-                    'Top News',
+                    topCat,
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,

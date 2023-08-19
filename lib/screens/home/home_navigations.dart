@@ -17,7 +17,18 @@ class HomeNavigation extends StatefulWidget {
 class _HomeNavigationState extends State<HomeNavigation> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = [];
-
+  List<String> topCat = [
+    "Top News",
+    "State",
+    "Life",
+    "Bollywood",
+    "Cricket",
+    "Women",
+    "Country",
+    "Carrier",
+    "Original",
+    "Utility"
+  ];
   @override
   void initState() {
     _widgetOptions = [
