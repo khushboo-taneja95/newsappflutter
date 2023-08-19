@@ -96,22 +96,25 @@ class _HomeNavigationState extends State<HomeNavigation> {
         elevation: 16,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         selectedItemColor: PanthalassaColors.appColor,
         unselectedItemColor: PanthalassaColors.bottomTapUnselectedColor,
         items: [
           BottomNavigationBarItem(
+
             icon: Image.asset(
               "assets/home.png",
               width: 25,
               height: 23,
             ),
             activeIcon: Image.asset(
-              "assets/home.png",
+              "assets/activehome.png",
               width: 25,
               height: 23,
               color: PanthalassaColors.appColor,
             ),
-            label: 'Home',
+            label:'Home',
+
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -120,12 +123,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
               height: 23,
             ),
             activeIcon: Image.asset(
-              "assets/categories.png",
+              "assets/activecategories.png",
               width: 25,
               height: 23,
               color: PanthalassaColors.appColor,
             ),
             label: 'Categories',
+
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -134,7 +138,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               height: 23,
             ),
             activeIcon: Image.asset(
-              "assets/favourite.png",
+              "assets/activefavourite.png",
               width: 25,
               height: 23,
               color: PanthalassaColors.appColor,
@@ -148,7 +152,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               height: 28,
             ),
             activeIcon: Image.asset(
-              "assets/account.png",
+              "assets/activeaccount.png",
               width: 30,
               height: 28,
               color: PanthalassaColors.appColor,

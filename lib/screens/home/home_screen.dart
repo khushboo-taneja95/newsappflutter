@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newsapplication/constant/colors.dart';
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget{
   const HomeScreen({Key? key, this.callBack});
@@ -80,38 +79,21 @@ class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(), //destination screen
-      floatingActionButton: FloatingActionButton(onPressed: () {  },
-        //params
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: AnimatedBottomNavigationBar(
-        icons: iconList,
-        activeIndex: _bottomNavIndex,
-        gapLocation: GapLocation.center,
-        notchSmoothness: NotchSmoothness.verySmoothEdge,
-        leftCornerRadius: 32,
-        rightCornerRadius: 32,
-        onTap: (index) => setState(() => _bottomNavIndex = index),
-        //other params
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            getCategories(),
+            const Divider(),
+            breakingNews(),
+            const Divider(),
+            getPopularStories(),
+            const Divider(),
+            getRecentUpdates(),
+          ],
+        ),
       ),
     );
-    // return Scaffold(
-    //   body: SingleChildScrollView(
-    //     child: Column(
-    //       crossAxisAlignment: CrossAxisAlignment.stretch,
-    //       children: [
-    //         getCategories(),
-    //         const Divider(),
-    //         breakingNews(),
-    //         const Divider(),
-    //         getPopularStories(),
-    //         const Divider(),
-    //         getRecentUpdates(),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 
   Widget getCategories() {
@@ -169,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
                 child:   Center(
                   child: Text(
                     topCat,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
                         color: PanthalassaColors.aboutUsCardBackgroud),
