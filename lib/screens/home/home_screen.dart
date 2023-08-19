@@ -1,79 +1,19 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapplication/constant/colors.dart';
 
-class HomeScreen extends StatefulWidget{
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, this.callBack});
   final Function(int)? callBack;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
-   var _bottomNavIndex = 0; //default index of a first screen
-  late AnimationController _fabAnimationController;
-  late AnimationController _borderRadiusAnimationController;
-  late Animation<double> fabAnimation;
-  late Animation<double> borderRadiusAnimation;
-  late CurvedAnimation fabCurve;
-  late CurvedAnimation borderRadiusCurve;
-  late AnimationController _hideBottomBarAnimationController;
-
-  final iconList = <IconData>[
-    Icons.brightness_5,
-    Icons.brightness_4,
-    Icons.brightness_6,
-    Icons.brightness_7,
-  ];
-  List<String> topCat = [
-    "Top News",
-    "State",
-    "Life",
-    "Bollywood",
-    "Cricket",
-    "Women",
-    "Country",
-    "Carrier",
-    "Original",
-    "Utility"
-  ];
+class _HomeScreenState extends State<HomeScreen> {
+  bool condition = true;
   @override
   void initState() {
     super.initState();
-    _fabAnimationController = AnimationController(
-      duration: Duration(milliseconds: 500),
-      vsync: this,
-    );
-    _borderRadiusAnimationController = AnimationController(
-      duration: Duration(milliseconds: 500),
-      vsync: this,
-    );
-    fabCurve = CurvedAnimation(
-      parent: _fabAnimationController,
-      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
-    );
-    borderRadiusCurve = CurvedAnimation(
-      parent: _borderRadiusAnimationController,
-      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
-    );
-
-    fabAnimation = Tween<double>(begin: 0, end: 1).animate(fabCurve);
-    borderRadiusAnimation = Tween<double>(begin: 0, end: 1).animate(
-      borderRadiusCurve,
-    );
-
-    _hideBottomBarAnimationController = AnimationController(
-      duration: Duration(milliseconds: 200),
-      vsync: this,
-    );
-
-    Future.delayed(
-      Duration(seconds: 1),
-          () => _fabAnimationController.forward(),
-    );
-    Future.delayed(
-      Duration(seconds: 1),
-          () => _borderRadiusAnimationController.forward(),
-    );
   }
 
   @override
@@ -83,9 +23,11 @@ class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            getCategories(),
+            getHomeBanners(),
             const Divider(),
             breakingNews(),
+            const Divider(),
+            getCategories(),
             const Divider(),
             getPopularStories(),
             const Divider(),
@@ -96,43 +38,97 @@ class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
     );
   }
 
-  Widget getCategories() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          height: 80,
-          child: ListView.builder(
-            itemCount: topCat.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return categoriesTopSlider(topCat[index].toString());
-            },
+  Widget getHomeBanners() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+      child: CarouselSlider(
+          options: CarouselOptions(
+            height: 190.0,
+            viewportFraction: 1,
+            autoPlay: true,
           ),
-        ),
-      ],
+          items: [
+            for (int i = 0; i < 4; i++)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Container(
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(
+                          fit: BoxFit.contain,
+                          colorFilter: ColorFilter.mode(
+                              Colors.black45, BlendMode.darken),
+                          image: NetworkImage(
+                              'https://wallpaperaccess.com/full/2637581.jpg')),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.grey,
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                            offset: Offset(4, 4))
+                      ]),
+                  child: const Text(
+                    '',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),
+              )
+          ]),
     );
   }
 
-  Widget categoriesTopSlider(String topCat) {
+  Widget getCategories() {
     return Padding(
       padding: const EdgeInsets.only(top: 8, right: 8, left: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Row(
+            children: [
+              Text(
+                "Categories ",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 80,
+            child: ListView.builder(
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return categoriesTopSlider();
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget categoriesTopSlider() {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 8,
+        right: 8,
+      ),
       child: SizedBox(
-        width: 100,
+        width: 120,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.all(1.5),
               child: Container(
-                height: 30,
+                height: 50,
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xffc34a8f),
-                      Color(0xffc34a8f),
-                    ],
-                  ),
+                  color: condition ? const Color(0xffFFD0AA) : Colors.white,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
@@ -148,13 +144,15 @@ class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
                   ],
                 ),
                 // color: Colors.red,
-                child:   Center(
+                child: Center(
                   child: Text(
-                    topCat,
-                    style: const TextStyle(
+                    'Top News',
+                    style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
-                        color: PanthalassaColors.aboutUsCardBackgroud),
+                        color: condition
+                            ? const Color(0xffFC9535)
+                            : const Color(0xffA1A1A1)),
                   ),
                 ),
               ),
@@ -262,26 +260,26 @@ class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(30),
-        child: Stack(
+        child: const Stack(
           children: [
-            const Positioned(
+            Positioned(
               left: 20.0,
               bottom: 50.0,
               right: 10.0,
               child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    "Kiara Advani discussed her most recent birthday vacation with her husband, actor Siddharth Malhotra. Sid and Kiara were spotted taking a vacation in Italy's Amalfi Coast.",
+                    "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   )),
             ),
-            const Positioned(
+            Positioned(
               left: 20.0,
               bottom: 10.0,
               child: Row(
@@ -304,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen>  with TickerProviderStateMixin{
                 ],
               ),
             ),
-            const Positioned(
+            Positioned(
               right: 20.0,
               bottom: 10.0,
               child: Row(

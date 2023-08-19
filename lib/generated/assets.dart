@@ -3,10 +3,6 @@ class Assets {
   Assets._();
 
   static const String assetsAccount = 'assets/account.png';
-  static const String assetsActiveaccount = 'assets/activeaccount.png';
-  static const String assetsActivecategories = 'assets/activecategories.png';
-  static const String assetsActivefavourite = 'assets/activefavourite.png';
-  static const String assetsActivehome = 'assets/activehome.png';
   static const String assetsApplelogo = 'assets/applelogo.png';
   static const String assetsCategories = 'assets/categories.png';
   static const String assetsFacebookicon = 'assets/facebookicon.png';
@@ -22,7 +18,6 @@ class Assets {
   static const String assetsKiara = 'assets/kiara.jpg';
   static const String assetsLogo = 'assets/logo.png';
   static const String assetsLogowithback = 'assets/logowithback.png';
-  static const String assetsMenu = 'assets/menu.png';
   static const String assetsNewsImages = 'assets/news_images.png';
   static const String assetsPalito = 'assets/palito.jpg';
   static const String assetsSpace = 'assets/space.jpeg';
