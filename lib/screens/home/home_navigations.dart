@@ -17,7 +17,18 @@ class HomeNavigation extends StatefulWidget {
 class _HomeNavigationState extends State<HomeNavigation> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = [];
-
+  List<String> topCat = [
+    "Top News",
+    "State",
+    "Life",
+    "Bollywood",
+    "Cricket",
+    "Women",
+    "Country",
+    "Carrier",
+    "Original",
+    "Utility"
+  ];
   @override
   void initState() {
     _widgetOptions = [
@@ -42,12 +53,22 @@ class _HomeNavigationState extends State<HomeNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.black,
+              icon: Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(width: 1, color: Colors.grey),
+                ),
+                child: Icon(
+                  Icons.menu,
+                  color: Colors.black,
+                  size: 20,
+                ),
               ),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
@@ -55,34 +76,69 @@ class _HomeNavigationState extends State<HomeNavigation> {
             );
           },
         ),
-        title:  Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-                'assets/logo.png',
-                height: 50,
-                width: 150,
-            )
-          ],
-        ),
+        // title:  Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     Image.asset(
+        //         'assets/logo.png',
+        //         height: 50,
+        //         width: 150,
+        //     )
+        //   ],
+        // ),
         actions: <Widget>[
-          Row(
-            children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.search,
-                  color: Colors.black,
-                ),
-                onPressed: () {},
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: 100,
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: PanthalassaColors.colorGrey.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(20),
               ),
-              IconButton(
-                icon: const Icon(
-                  Icons.notification_add,
-                  color: Colors.black,
-                ),
-                onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      // handle button press
+                    },
+                    child: Container(
+                      width: 28,
+                      height: 28,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 1, color: Colors.grey),
+                      ),
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.black87.withOpacity(0.8),
+                        size: 17,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Container(
+                      width: 28,
+                      height: 28,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 1, color: Colors.grey),
+                      ),
+                      child: Icon(
+                        Icons.notifications,
+                        color: Colors.black87.withOpacity(0.8),
+                        size: 17,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           )
         ],
         backgroundColor: PanthalassaColors.colorWhite,
@@ -96,6 +152,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
         elevation: 16,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         selectedItemColor: PanthalassaColors.appColor,
         unselectedItemColor: PanthalassaColors.bottomTapUnselectedColor,
         items: [
@@ -106,7 +163,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               height: 23,
             ),
             activeIcon: Image.asset(
-              "assets/home.png",
+              "assets/activehome.png",
               width: 25,
               height: 23,
               color: PanthalassaColors.appColor,
@@ -120,7 +177,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               height: 23,
             ),
             activeIcon: Image.asset(
-              "assets/categories.png",
+              "assets/activecategories.png",
               width: 25,
               height: 23,
               color: PanthalassaColors.appColor,
@@ -134,7 +191,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               height: 23,
             ),
             activeIcon: Image.asset(
-              "assets/favourite.png",
+              "assets/activefavourite.png",
               width: 25,
               height: 23,
               color: PanthalassaColors.appColor,
@@ -148,7 +205,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               height: 28,
             ),
             activeIcon: Image.asset(
-              "assets/account.png",
+              "assets/activeaccount.png",
               width: 30,
               height: 28,
               color: PanthalassaColors.appColor,
@@ -175,22 +232,15 @@ class _HomeNavigationState extends State<HomeNavigation> {
               padding: EdgeInsets.zero,
               children: [
                 const DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            "https://www.shutterstock.com/image-photo/skyscrapers-low-angle-view-modern-260nw-1035769717.jpg")),
-                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "NEWS LINE",
+                        "Panthalassa",
                         style: TextStyle(
                             fontSize: 22.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.white),
+                            color: Colors.black),
                       ),
                       SizedBox(
                         height: 5,
@@ -200,13 +250,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
                         style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
-                            color: Colors.white70),
+                            color: Colors.black),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: SettingItem(
                     title: "Bookmarks",
                     leadingIcon: "assets/ic_bookmarks.png",
@@ -218,7 +268,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: SettingItem(
                     title: "Get Notifications",
                     leadingIcon: "assets/ic_notifications.png",
@@ -230,7 +280,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: SettingItem(
                     title: "Privacy Policy",
                     leadingIcon: "assets/ic_privacypolicy.png",
@@ -242,7 +292,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: SettingItem(
                     title: "Rate This App",
                     leadingIcon: "assets/ic_rate_the_app.png",

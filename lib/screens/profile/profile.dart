@@ -181,14 +181,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: 10,
               ),
               const Text(
-                "Junaid Ansari",
+                "Customer",
                 style: PanthalassaStyles.otherOptionsText,
               ),
               const SizedBox(
                 height: 5,
               ),
               const Text(
-                "junaidansariuk@gmail.com",
+                "customer@tripledotss.com",
               ),
               const SizedBox(
                 height: 10,

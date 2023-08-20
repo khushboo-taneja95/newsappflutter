@@ -30,18 +30,18 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 450,
             ),
           ),
-          const Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 80.0),
-                child: Text(
-                  "THINGS THAT MATTER",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.grey,
-                      fontSize: 22),
-                ),
-              )),
+          // const Align(
+          //     alignment: FractionalOffset.bottomCenter,
+          //     child: Padding(
+          //       padding: EdgeInsets.only(bottom: 80.0),
+          //       child: Text(
+          //         "THINGS THAT MATTER",
+          //         style: TextStyle(
+          //             fontWeight: FontWeight.w500,
+          //             color: Colors.grey,
+          //             fontSize: 22),
+          //       ),
+          //     )),
         ],
       ),
     );

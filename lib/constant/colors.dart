@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 class PanthalassaColors {
-  static const Color appColor = Color(0xffaf1b70);
+  static const Color appColor = Color(0xff3057ff);
   static const Color paymentButton = Color(0xff30C9CD);
   static const Color textColor = Color(0xFF575757);
   static const Color textColorWhite = Color(0xFFFFFFFF);
@@ -28,5 +28,7 @@ class PanthalassaColors {
   static const fecebookbtn = Color(0xFF1877f2);
    static const Color profilePicBackgroundColor = Color(0xFFFFF9F6);
   static const Color inputBorderColor = Color(0x8851504F);
+  static const Color colorGrey = Color(0xFFD3D3D3);
+
 
 }

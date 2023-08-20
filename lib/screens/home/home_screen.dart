@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapplication/constant/colors.dart';
+import 'package:readmore/readmore.dart';
+import 'package:newsapplication/screens/breaking_news/breaking_news.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, this.callBack});
@@ -11,6 +13,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool condition = true;
+  List<String> topCat = [
+    "Top News",
+    "State",
+    "Life",
+    "Bollywood",
+    "Cricket",
+    "Women",
+    "Country",
+    "Carrier",
+    "Original",
+    "Utility"
+  ];
   @override
   void initState() {
     super.initState();
@@ -24,14 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             getHomeBanners(),
-            const Divider(),
-            breakingNews(),
-            const Divider(),
             getCategories(),
-            const Divider(),
             getPopularStories(),
-            const Divider(),
-            getRecentUpdates(),
+            // getRecentUpdates(),
           ],
         ),
       ),
@@ -40,70 +49,119 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget getHomeBanners() {
     return Padding(
-      padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
-      child: CarouselSlider(
-          options: CarouselOptions(
-            height: 190.0,
-            viewportFraction: 1,
-            autoPlay: true,
-          ),
-          items: [
-            for (int i = 0; i < 4; i++)
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Container(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  width: MediaQuery.of(context).size.width,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: const DecorationImage(
-                          fit: BoxFit.contain,
-                          colorFilter: ColorFilter.mode(
-                              Colors.black45, BlendMode.darken),
-                          image: NetworkImage(
-                              'https://wallpaperaccess.com/full/2637581.jpg')),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.grey,
-                            spreadRadius: 2,
-                            blurRadius: 8,
-                            offset: Offset(4, 4))
-                      ]),
-                  child: const Text(
-                    '',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                ),
-              )
-          ]),
-    );
-  }
-
-  Widget getCategories() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8, right: 8, left: 8),
+      padding: const EdgeInsets.all(5),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Categories ",
+                "Breaking News",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
+              Text(
+                "Show More",
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold),
+              )
             ],
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          CarouselSlider(
+              options: CarouselOptions(
+                height: 180.0,
+                viewportFraction: 1,
+                autoPlay: true,
+              ),
+              items: [
+                for (int i = 0; i < 4; i++)
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Stack(
+                      children: [
+                        Container(
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          width: MediaQuery.of(context).size.width,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: const DecorationImage(
+                                fit: BoxFit.fill,
+                                colorFilter: ColorFilter.mode(
+                                    Colors.black45, BlendMode.darken),
+                                image: AssetImage('assets/pakhead.png'),
+                              ),
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Colors.grey,
+                                    spreadRadius: 2,
+                                    blurRadius: 8,
+                                    offset: Offset(4, 4))
+                              ]),
+                          child: const Text(
+                            '',
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                              child: Text(
+                            "Inshorts is a news app that selects latest and best news from multiple national and international sources and summarises them to present in a short and ...",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
+                          )),
+                        ),
+                      ],
+                    ),
+                  )
+              ]),
+        ],
+      ),
+    );
+  }
+
+  Widget getCategories() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 2, right: 8, left: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // const Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Text(
+          //       "Categories ",
+          //       style: TextStyle(
+          //           color: Colors.black,
+          //           fontSize: 16,
+          //           fontWeight: FontWeight.bold),
+          //     ),
+          //     Text(
+          //       "Show more",
+          //       style: TextStyle(
+          //           color: Colors.grey,
+          //           fontSize: 13,
+          //           fontWeight: FontWeight.bold),
+          //     )
+          //   ],
+          // ),
           SizedBox(
             height: 80,
             child: ListView.builder(
-              itemCount: 10,
+              itemCount: topCat.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return categoriesTopSlider();
+                return categoriesTopSlider(topCat[index].toString(), index);
               },
             ),
           ),
@@ -112,53 +170,79 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget categoriesTopSlider() {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 8,
-        right: 8,
-      ),
-      child: SizedBox(
-        width: 120,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(1.5),
-              child: Container(
-                height: 50,
-                decoration: BoxDecoration(
-                  color: condition ? const Color(0xffFFD0AA) : Colors.white,
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: const Offset(0, 3),
+  Widget categoriesTopSlider(String topCat, int i) {
+    return SizedBox(
+      width: 95,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(1.5),
+            child: i == 0
+                ? Container(
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: PanthalassaColors.appColor,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                // color: Colors.red,
-                child: Center(
-                  child: Text(
-                    'Top News',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                        color: condition
-                            ? const Color(0xffFC9535)
-                            : const Color(0xffA1A1A1)),
+                    // color: Colors.red,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.sports_football,
+                              color: Colors.white,
+                              size: 15,
+                            ),
+                            Text(
+                              topCat,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10,
+                                  color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                : Container(
+                    height: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    // color: Colors.red,
+                    child: Center(
+                      child: Text(
+                        topCat,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
+                            color: PanthalassaColors.appColor),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -250,82 +334,88 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget breakingNewsSlider() {
-    return Container(
-      height: 200,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        image: const DecorationImage(
-            image: AssetImage("assets/kiara.jpg"), fit: BoxFit.cover),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: const Stack(
-          children: [
-            Positioned(
-              left: 20.0,
-              bottom: 50.0,
-              right: 10.0,
-              child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
-            ),
-            Positioned(
-              left: 20.0,
-              bottom: 10.0,
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.punch_clock,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '5 Hour',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: ((context) => BreakingNewsDetails())));
+      },
+      child: Container(
+        height: 200,
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          image: const DecorationImage(
+              image: AssetImage("assets/kiara.jpg"), fit: BoxFit.cover),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: const Stack(
+            children: [
+              Positioned(
+                left: 20.0,
+                bottom: 50.0,
+                right: 10.0,
+                child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
               ),
-            ),
-            Positioned(
-              right: 20.0,
-              bottom: 10.0,
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '25',
-                    style: TextStyle(
-                      fontSize: 12,
+              Positioned(
+                left: 20.0,
+                bottom: 10.0,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.punch_clock,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '5 Hour',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              Positioned(
+                right: 20.0,
+                bottom: 10.0,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '25',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -342,7 +432,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 const Text(
-                  "Popular Stories",
+                  "Recommended for you",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
@@ -355,33 +445,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       widget.callBack!(2);
                     }
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          Colors.black,
-                          PanthalassaColors.appColor,
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(35),
-                    ),
-                    height: 40,
-                    width: 80,
-                    child: Padding(
-                      padding: const EdgeInsets.all(1.5),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(35),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'See More',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 12),
-                          ),
-                        ),
-                      ),
+                  child: const Center(
+                    child: Text(
+                      'Show More',
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12),
                     ),
                   ),
                 ),
@@ -389,10 +459,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(
-            height: 195,
             child: ListView.builder(
               itemCount: 20,
-              scrollDirection: Axis.horizontal,
+              physics: NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.vertical,
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return getPopularStoriesCard();
@@ -405,120 +475,60 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget getPopularStoriesCard() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: InkWell(
-        onTap: (() {}),
-        child: Card(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxWidth: MediaQuery.of(context).size.width - 205,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 4),
-                      const Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            "Sky Perfect JSAT order first Airbus satelite Sky Perfect JSAT order first Airbus satelite",
-                            maxLines: 4,
-                            selectionColor: Colors.black,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
-                      const SizedBox(height: 15),
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: PanthalassaColors.appColor,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: const Text(
-                                  'Space',
-                                  style: TextStyle(
-                                      color: PanthalassaColors.colorWhite),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              const Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              const Text(
-                                '25',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+    return InkWell(
+      onTap: (() {
+        Navigator.push(context,
+            MaterialPageRoute(builder: ((context) => BreakingNewsDetails())));
+      }),
+      child: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.asset(
+                "assets/space.jpeg",
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
               ),
-              Padding(
-                padding: const EdgeInsets.all(18.0),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left : 8.0),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width - 155,
+                ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        "assets/space.jpeg",
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
-                      ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "blogs.title.toString()",
+
                     ),
-                    const SizedBox(
-                      height: 10,
+                    const SizedBox(height: 10),
+                    Text(
+                         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+                      maxLines: 3,
+                      textAlign: TextAlign.justify,
+
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    const Row(
-                      children: [
-                        Icon(
-                          Icons.punch_clock,
-                          color: Colors.black,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          '5 Hour',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.green,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
+                    const SizedBox(height: 10),
+                    // Text(
+                    //   'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+                    //   style: TextStyle(fontSize: 10),
+                    //   softWrap: false,
+                    //   maxLines: 1,
+                    //   overflow: TextOverflow.fade, //new
+                    // ),
                   ],
                 ),
               ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
@@ -566,7 +576,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child: const Center(
                         child: Text(
-                          'See More',
+                          'Show More',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 12),
                         ),

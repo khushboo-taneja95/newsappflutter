@@ -5,21 +5,19 @@ class SettingItem extends StatelessWidget {
   final String? leadingIcon;
   final String title;
   final GestureTapCallback? onTap;
-  const SettingItem(
-      {Key? key, required this.title, this.onTap, this.leadingIcon})
-      : super(key: key);
+  const SettingItem({Key? key, required this.title, this.onTap, this.leadingIcon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.only(top: 10, bottom: 10),
+        padding: const EdgeInsets.only(top: 10,left: 15,bottom: 10),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
-            height: 40,
-            width: 40,
+            height: 30,
+            width: 30,
             decoration: BoxDecoration(
               boxShadow: const [
                 BoxShadow(
@@ -28,13 +26,13 @@ class SettingItem extends StatelessWidget {
                     offset: Offset(0.0, 0.75))
               ],
               color: PanthalassaColors.appColor,
-              borderRadius: BorderRadius.circular(50 / 2),
+              borderRadius: BorderRadius.circular(59 / 2),
             ),
             child: Center(
               child: Image.asset(
                 leadingIcon!,
-                width: 22,
-                height: 22,
+                width: 16,
+                height: 16,
                 color: Colors.white,
               ),
             ),
