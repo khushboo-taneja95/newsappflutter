@@ -28,5 +28,6 @@ class Assets {
   static const String assetsPalito = 'assets/palito.jpg';
   static const String assetsSpace = 'assets/space.jpeg';
   static const String fontsPanthalassa = 'assets/fonts/Panthalassa.ttf';
+  static const String fontsPanthallasaRegular = 'assets/fonts/panthallasa_Regular.ttf';
 
 }

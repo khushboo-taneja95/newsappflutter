@@ -33,15 +33,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       body: SafeArea(
         child: GridView.builder(
           shrinkWrap: true,
-          itemCount: 20,
+          itemCount: 10,
           controller: scrollController,
           itemBuilder: (context, index) {
             return categoriesCardList();
           },
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: columnsCount,
+            crossAxisCount:4,
           // Set the aspect ratio of each card.
-          childAspectRatio: 1.3 / 2,
+          childAspectRatio: 1.6 / 2,
             mainAxisSpacing: 0.0,
             crossAxisSpacing: 0.0,
           ),
@@ -52,41 +52,52 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   Widget categoriesCardList() {
     return Padding(
-      padding: const EdgeInsets.only(top: 2.0, right: 8.0, left: 8.0),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(0.0),
-            child: ClipRRect(
+      padding: const EdgeInsets.all(10),
+      child:Stack(
+          children: <Widget>[
+            ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
                 "assets/space.jpeg",
-                height: 200,
+                height: 100,
                 fit: BoxFit.cover,
               ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 10),
-            child: Column(
-              children: [
-                Text(
-                  "TECHNOLOGY",
-                  maxLines: 3,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                      fontSize: 14),
-                ),
-                Text(
-                  '3.1k Articles',
-                  style: TextStyle(color: Colors.black, fontSize: 12),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+            const Center(child: Text("Technology",style: TextStyle(fontSize: 10,color: Colors.white,fontWeight: FontWeight.bold),)),
+          ]
+      )
+      //
+      // Column(
+      //   children: [
+      //     ClipRRect(
+      //       borderRadius: BorderRadius.circular(8.0),
+      //       child: Image.asset(
+      //         "assets/space.jpeg",
+      //         height: 100,
+      //         fit: BoxFit.cover,
+      //       ),
+      //     ),
+      //     // const Padding(
+      //     //   padding: EdgeInsets.only(top: 10),
+      //     //   child: Column(
+      //     //     children: [
+      //     //       Text(
+      //     //         "TECHNOLOGY",
+      //     //         maxLines: 3,
+      //     //         style: TextStyle(
+      //     //             fontWeight: FontWeight.bold,
+      //     //             color: Colors.blue,
+      //     //             fontSize: 14),
+      //     //       ),
+      //     //       Text(
+      //     //         '3.1k Articles',
+      //     //         style: TextStyle(color: Colors.black, fontSize: 12),
+      //     //       ),
+      //     //     ],
+      //     //   ),
+      //     // ),
+      //   ],
+      // ),
     );
   }
 }

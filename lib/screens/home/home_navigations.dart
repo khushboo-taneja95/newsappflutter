@@ -17,18 +17,6 @@ class HomeNavigation extends StatefulWidget {
 class _HomeNavigationState extends State<HomeNavigation> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = [];
-  List<String> topCat = [
-    "Top News",
-    "State",
-    "Life",
-    "Bollywood",
-    "Cricket",
-    "Women",
-    "Country",
-    "Carrier",
-    "Original",
-    "Utility"
-  ];
   @override
   void initState() {
     _widgetOptions = [
@@ -127,7 +115,8 @@ class _HomeNavigationState extends State<HomeNavigation> {
                       height: 28,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(width: 1, color: Colors.grey),
+                        color: Colors.white,
+                        border: Border.all(width: 1, color: Colors.white),
                       ),
                       child: Icon(
                         Icons.notifications,
@@ -149,23 +138,23 @@ class _HomeNavigationState extends State<HomeNavigation> {
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: PanthalassaColors.bottomTapColor,
-        elevation: 16,
+        elevation: 5,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.normal,fontSize: 10),
         selectedItemColor: PanthalassaColors.appColor,
         unselectedItemColor: PanthalassaColors.bottomTapUnselectedColor,
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/home.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
             ),
             activeIcon: Image.asset(
               "assets/activehome.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
               color: PanthalassaColors.appColor,
             ),
             label: 'Home',
@@ -173,13 +162,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/categories.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
             ),
             activeIcon: Image.asset(
               "assets/activecategories.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
               color: PanthalassaColors.appColor,
             ),
             label: 'Categories',
@@ -187,13 +176,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/favourite.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
             ),
             activeIcon: Image.asset(
               "assets/activefavourite.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
               color: PanthalassaColors.appColor,
             ),
             label: 'Favourite',
@@ -201,13 +190,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/account.png",
-              width: 30,
-              height: 28,
+              width: 20,
+              height: 20,
             ),
             activeIcon: Image.asset(
               "assets/activeaccount.png",
-              width: 30,
-              height: 28,
+              width: 20,
+              height: 20,
               color: PanthalassaColors.appColor,
             ),
             label: 'Profile',
