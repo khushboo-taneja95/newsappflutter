@@ -78,7 +78,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              width: 100,
+              width: 80,
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: PanthalassaColors.colorGrey.withOpacity(0.2),
@@ -96,7 +96,8 @@ class _HomeNavigationState extends State<HomeNavigation> {
                       height: 28,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(width: 1, color: Colors.grey),
+                        color: Colors.white,
+                        border: Border.all(width: 1, color: Colors.white),
                       ),
                       child: Icon(
                         Icons.search,
@@ -132,8 +133,97 @@ class _HomeNavigationState extends State<HomeNavigation> {
         ],
         backgroundColor: PanthalassaColors.colorWhite,
       ),
-      drawer: Drawer(
-        child: getDrawer(),
+      drawer: Container(
+        width: MediaQuery.of(context).size.width * 0.7,
+        decoration: BoxDecoration(
+            border: Border.all(
+              color: PanthalassaColors.textColorWhite,
+            ),
+            borderRadius: const BorderRadius.only(topRight:Radius.circular(10),bottomRight:Radius.circular(10))
+        ),
+        child: Drawer(
+          backgroundColor: PanthalassaColors.textColorWhite,
+          child: ListView(
+            // Remove padding
+            padding: EdgeInsets.zero,
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text('Customer'),
+                accountEmail: Text('customer@gmail.com'),
+                currentAccountPicture: CircleAvatar(
+                  child: ClipOval(
+                    child: Image.network(
+                      'https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png',
+                      fit: BoxFit.cover,
+                      width: 90,
+                      height: 90,
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(
+                          'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.favorite),
+                title: Text('Favorites'),
+                onTap: () => null,
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Friends'),
+                onTap: () => null,
+              ),
+              ListTile(
+                leading: Icon(Icons.share),
+                title: Text('Share'),
+                onTap: () => null,
+              ),
+              ListTile(
+                leading: Icon(Icons.notifications),
+                title: Text('Request'),
+                onTap: () => null,
+                trailing: ClipOval(
+                  child: Container(
+                    color: Colors.red,
+                    width: 20,
+                    height: 20,
+                    child: Center(
+                      child: Text(
+                        '8',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+                onTap: () => null,
+              ),
+              ListTile(
+                leading: Icon(Icons.description),
+                title: Text('Policies'),
+                onTap: () => null,
+              ),
+              Divider(),
+              ListTile(
+                title: Text('Exit'),
+                leading: Icon(Icons.exit_to_app),
+                onTap: () => null,
+              ),
+            ],
+          ),
+        ),
       ),
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
@@ -214,7 +304,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
 
   Widget getDrawer() {
     return SafeArea(
-      child: Drawer(
+      child: /*Drawer(
         child: Column(children: [
           Expanded(
             child: ListView(
@@ -245,201 +335,49 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            boxShadow: const [
-                              BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 5.0,
-                                  offset: Offset(0.0, 0.75))
-                            ],
-                            color: PanthalassaColors.appColor,
-                            borderRadius: BorderRadius.circular(59 / 2),
-                          ),
-                          child: Center(
-                            child: Image.asset(
-                              'assets/ic_bookmarks.png',
-                              width: 16,
-                              height: 16,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Expanded(
-                          child: Text(
-                            "Bookmarks",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ]),
-                ),
-                // Padding(
-                //   padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                //   child: SettingItem(
-                //     title: "Bookmarks",
-                //     leadingIcon: "assets/ic_bookmarks.png",
-                //     onTap: () {},
-                //   ),
-                // ),
-                Divider(
-                  height: 0,
-                  color: Colors.grey.withOpacity(0.8),
-                ),
-                // Padding(
-                //   padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                //   child: SettingItem(
-                //     title: "Get Notifications",
-                //     leadingIcon: "assets/ic_notifications.png",
-                //     onTap: () {},
-                //   ),
-                // ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            boxShadow: const [
-                              BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 5.0,
-                                  offset: Offset(0.0, 0.75))
-                            ],
-                            color: PanthalassaColors.colorRed,
-                            borderRadius: BorderRadius.circular(59 / 2),
-                          ),
-                          child: Center(
-                            child: Image.asset(
-                              'assets/ic_notifications.png',
-                              width: 16,
-                              height: 16,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Expanded(
-                          child: Text(
-                            "Get Notifications",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ]),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                  child: SettingItem(
+                    title: "Bookmarks",
+                    leadingIcon: "assets/ic_bookmarks.png",
+                    onTap: () {},
+                  ),
                 ),
                 Divider(
                   height: 0,
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            boxShadow: const [
-                              BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 5.0,
-                                  offset: Offset(0.0, 0.75))
-                            ],
-                            color: PanthalassaColors.cardColor,
-                            borderRadius: BorderRadius.circular(59 / 2),
-                          ),
-                          child: Center(
-                            child: Image.asset(
-                              'assets/ic_privacypolicy.png',
-                              width: 16,
-                              height: 16,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Expanded(
-                          child: Text(
-                            "Privacy Policy",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ]),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                  child: SettingItem(
+                    title: "Get Notifications",
+                    leadingIcon: "assets/ic_notifications.png",
+                    onTap: () {},
+                  ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                //   child: SettingItem(
-                //     title: "Privacy Policy",
-                //     leadingIcon: "assets/ic_privacypolicy.png",
-                //     onTap: () {},
-                //   ),
-                // ),
                 Divider(
                   height: 0,
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            boxShadow: const [
-                              BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 5.0,
-                                  offset: Offset(0.0, 0.75))
-                            ],
-                            color: PanthalassaColors.colorGreen,
-                            borderRadius: BorderRadius.circular(59 / 2),
-                          ),
-                          child: Center(
-                            child: Image.asset(
-                              'assets/ic_rate_the_app.png',
-                              width: 16,
-                              height: 16,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const Expanded(
-                          child: Text(
-                            "Rate This App",
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ]),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                  child: SettingItem(
+                    title: "Privacy Policy",
+                    leadingIcon: "assets/ic_privacypolicy.png",
+                    onTap: () {},
+                  ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                //   child: SettingItem(
-                //     title: "Rate This App",
-                //     leadingIcon: "assets/ic_rate_the_app.png",
-                //     onTap: () {},
-                //   ),
-                // ),
+                Divider(
+                  height: 0,
+                  color: Colors.grey.withOpacity(0.8),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                  child: SettingItem(
+                    title: "Rate This App",
+                    leadingIcon: "assets/ic_rate_the_app.png",
+                    onTap: () {},
+                  ),
+                ),
               ],
             ),
           ),
@@ -494,6 +432,92 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 )),
           )
         ]),
+      ),*/
+      Container(
+        width: MediaQuery.of(context).size.width * 0.5,
+        child: Drawer(
+          width: 50,
+          child: ListView(
+            // Remove padding
+            padding: EdgeInsets.zero,
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text('Customer'),
+                accountEmail: Text('customer@gmail.com'),
+                currentAccountPicture: CircleAvatar(
+                  child: ClipOval(
+                    child: Image.network(
+                      'https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png',
+                      fit: BoxFit.cover,
+                      width: 90,
+                      height: 90,
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(
+                          'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.favorite),
+                title: Text('Favorites'),
+                onTap: () => null,
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text('Friends'),
+                onTap: () => null,
+              ),
+              ListTile(
+                leading: Icon(Icons.share),
+                title: Text('Share'),
+                onTap: () => null,
+              ),
+              ListTile(
+                leading: Icon(Icons.notifications),
+                title: Text('Request'),
+                onTap: () => null,
+                trailing: ClipOval(
+                  child: Container(
+                    color: Colors.red,
+                    width: 20,
+                    height: 20,
+                    child: Center(
+                      child: Text(
+                        '8',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Settings'),
+                onTap: () => null,
+              ),
+              ListTile(
+                leading: Icon(Icons.description),
+                title: Text('Policies'),
+                onTap: () => null,
+              ),
+              Divider(),
+              ListTile(
+                title: Text('Exit'),
+                leading: Icon(Icons.exit_to_app),
+                onTap: () => null,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
