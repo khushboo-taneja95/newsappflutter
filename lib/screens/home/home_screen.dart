@@ -83,44 +83,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 for (int i = 0; i < 4; i++)
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
-                    child: Stack(
-                      children: [
-                        Container(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          width: MediaQuery.of(context).size.width,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
-                                fit: BoxFit.fill,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.black45, BlendMode.darken),
-                                image: AssetImage('assets/pakhead.png'),
-                              ),
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    spreadRadius: 2,
-                                    blurRadius: 8,
-                                    offset: Offset(4, 4))
-                              ]),
-                          child: const Text(
-                            '',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
+                    child: Container(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      width: MediaQuery.of(context).size.width,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                            fit: BoxFit.fill,
+                            colorFilter: ColorFilter.mode(
+                                Colors.black45, BlendMode.darken),
+                            image: AssetImage('assets/pakhead.png'),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Center(
-                              child: Text(
-                            "Inshorts is a news app that selects latest and best news from multiple national and international sources and summarises them to present in a short and ...",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14),
-                          )),
-                        ),
-                      ],
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Colors.grey,
+                                spreadRadius: 2,
+                                blurRadius: 8,
+                                offset: Offset(4, 4))
+                          ]),
+                      child: const Text(
+                        '',
+                        style: TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                     ),
                   )
               ]),
@@ -485,7 +470,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left : 8.0),
+              padding: const EdgeInsets.only(left: 8.0),
               child: ConstrainedBox(
                 constraints: BoxConstraints(
                   maxWidth: MediaQuery.of(context).size.width - 155,
@@ -496,14 +481,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(width: 4),
                     Text(
                       "blogs.title.toString()",
-
                     ),
                     const SizedBox(height: 10),
                     Text(
-                         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
+                      'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
                       maxLines: 3,
                       textAlign: TextAlign.justify,
-
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 10),

@@ -62,12 +62,9 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 height: 32,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(
-                      width: 1,
-                      color: Colors.grey
-                  ),
+                  border: Border.all(width: 2, color: const Color(0xffD3D3D3)),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.menu,
                   color: Colors.black,
                   size: 20,
@@ -79,16 +76,6 @@ class _HomeNavigationState extends State<HomeNavigation> {
             );
           },
         ),
-        // title:  Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     Image.asset(
-        //         'assets/logo.png',
-        //         height: 50,
-        //         width: 150,
-        //     )
-        //   ],
-        // ),
         actions: <Widget>[
           Row(
             children: [
@@ -101,10 +88,8 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   height: 32,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(
-                      width: 1,
-                      color: Colors.grey
-                    ),
+                    border:
+                        Border.all(width: 1, color: const Color(0xffD3D3D3)),
                   ),
                   child: Icon(
                     Icons.search,
@@ -113,18 +98,18 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   ),
                 ),
               ),
-              SizedBox(width: 10,),
+              SizedBox(
+                width: 10,
+              ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0,0,8,0),
+                padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
                 child: Container(
                   width: 32,
                   height: 32,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(
-                        width: 1,
-                        color: Colors.grey
-                    ),
+                    border:
+                        Border.all(width: 1, color: const Color(0xffD3D3D3)),
                   ),
                   child: SizedBox(
                     width: 30,
@@ -147,7 +132,8 @@ class _HomeNavigationState extends State<HomeNavigation> {
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Color(0xffc32c37),
-                                border: Border.all(color: Colors.white, width: 1)),
+                                border:
+                                    Border.all(color: Colors.white, width: 1)),
                             child: Padding(
                               padding: const EdgeInsets.all(0.0),
                               child: Center(
@@ -165,7 +151,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 ),
               ),
             ],
-          )
+          ),
         ],
         backgroundColor: PanthalassaColors.colorWhite,
       ),
