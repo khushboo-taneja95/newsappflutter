@@ -3,44 +3,83 @@ import 'package:newsapplication/constant/colors.dart';
 import 'package:newsapplication/constant/dimens.dart';
 
 class ToolbarWithTitleAndBackbutton extends StatelessWidget {
-  final String title;
   final Function? backFn;
   const ToolbarWithTitleAndBackbutton({
     Key? key,
-    required this.title,
     this.backFn,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      centerTitle: false,
-      backgroundColor: PanthalassaColors.colorWhite,
-      leading: GestureDetector(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: InkResponse(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
+      elevation: 0,
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(width: 1, color: Colors.grey),
+              ),
               child: Icon(
-               Icons.arrow_back,
+                Icons.arrow_back,
                 color: Colors.black,
+                size: 20,
               ),
             ),
-          ),
-        ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          );
+        },
       ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          color: PanthalassaColors.textColorGrey,
-          fontWeight: FontWeight.w600,
-          fontSize: 14,
-        ),
-      ),
+      actions: <Widget>[
+        Row(
+          children: [
+            InkWell(
+              onTap: () {},
+              child: Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(width: 1, color: Colors.grey),
+                ),
+                child: Icon(
+                  Icons.download,
+                  color: Colors.black87,
+                  size: 20,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 1, color: Colors.grey),
+                  ),
+                  child: Icon(
+                    Icons.browse_gallery,
+                    color: Colors.black87,
+                    size: 20,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
+      backgroundColor: PanthalassaColors.colorWhite,
     );
   }
 }

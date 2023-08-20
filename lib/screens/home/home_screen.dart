@@ -172,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget categoriesTopSlider(String topCat, int i) {
     return SizedBox(
-      width: 80,
+      width: 95,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -476,7 +476,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget getPopularStoriesCard() {
     return InkWell(
-      onTap: (() {}),
+      onTap: (() {
+        Navigator.push(context,
+            MaterialPageRoute(builder: ((context) => BreakingNewsDetails())));
+      }),
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Row(

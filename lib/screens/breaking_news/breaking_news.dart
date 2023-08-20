@@ -20,7 +20,7 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const ToolbarWithTitleAndBackbutton(title: ""),
+            const ToolbarWithTitleAndBackbutton(),
             listData()
           ],
         ),
@@ -54,9 +54,7 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 image: DecorationImage(
-                    image: NetworkImage(
-                      'https://wallpaperaccess.com/full/2637581.jpg',
-                    ),
+                    image: AssetImage('assets/pakhead.png'),
                     fit: BoxFit.fill)),
           ),
           Text(
