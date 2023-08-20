@@ -53,12 +53,25 @@ class _HomeNavigationState extends State<HomeNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
-              icon: const Icon(
-                Icons.menu,
-                color: Colors.black,
+              icon: Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                      width: 1,
+                      color: Colors.grey
+                  ),
+                ),
+                child: Icon(
+                  Icons.menu,
+                  color: Colors.black,
+                  size: 20,
+                ),
               ),
               onPressed: () {
                 Scaffold.of(context).openDrawer();
@@ -66,32 +79,90 @@ class _HomeNavigationState extends State<HomeNavigation> {
             );
           },
         ),
-        title:  Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-                'assets/logo.png',
-                height: 50,
-                width: 150,
-            )
-          ],
-        ),
+        // title:  Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     Image.asset(
+        //         'assets/logo.png',
+        //         height: 50,
+        //         width: 150,
+        //     )
+        //   ],
+        // ),
         actions: <Widget>[
           Row(
             children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.search,
-                  color: Colors.black,
+              InkWell(
+                onTap: () {
+                  // handle button press
+                },
+                child: Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      width: 1,
+                      color: Colors.grey
+                    ),
+                  ),
+                  child: Icon(
+                    Icons.search,
+                    color: Colors.black87,
+                    size: 20,
+                  ),
                 ),
-                onPressed: () {},
               ),
-              IconButton(
-                icon: const Icon(
-                  Icons.notification_add,
-                  color: Colors.black,
+              SizedBox(width: 10,),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0,0,8,0),
+                child: Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                        width: 1,
+                        color: Colors.grey
+                    ),
+                  ),
+                  child: SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: Stack(
+                      children: [
+                        Icon(
+                          Icons.notifications,
+                          color: Colors.black87,
+                          size: 24,
+                        ),
+                        Container(
+                          width: 25,
+                          height: 25,
+                          alignment: Alignment.topRight,
+                          // margin: EdgeInsets.only(top: 1),
+                          child: Container(
+                            width: 14,
+                            height: 14,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xffc32c37),
+                                border: Border.all(color: Colors.white, width: 1)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(0.0),
+                              child: Center(
+                                child: Text(
+                                  '2',
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                onPressed: () {},
               ),
             ],
           )
@@ -112,7 +183,6 @@ class _HomeNavigationState extends State<HomeNavigation> {
         unselectedItemColor: PanthalassaColors.bottomTapUnselectedColor,
         items: [
           BottomNavigationBarItem(
-
             icon: Image.asset(
               "assets/home.png",
               width: 25,
@@ -124,8 +194,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
               height: 23,
               color: PanthalassaColors.appColor,
             ),
-            label:'Home',
-
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -140,7 +209,6 @@ class _HomeNavigationState extends State<HomeNavigation> {
               color: PanthalassaColors.appColor,
             ),
             label: 'Categories',
-
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -193,7 +261,6 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-
                       Text(
                         "Panthalassa",
                         style: TextStyle(
@@ -215,7 +282,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5,0, 5,0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: SettingItem(
                     title: "Bookmarks",
                     leadingIcon: "assets/ic_bookmarks.png",
@@ -227,7 +294,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5,0, 5,0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: SettingItem(
                     title: "Get Notifications",
                     leadingIcon: "assets/ic_notifications.png",
@@ -239,7 +306,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5,0, 5,0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: SettingItem(
                     title: "Privacy Policy",
                     leadingIcon: "assets/ic_privacypolicy.png",
@@ -251,7 +318,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5,0, 5,0),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: SettingItem(
                     title: "Rate This App",
                     leadingIcon: "assets/ic_rate_the_app.png",

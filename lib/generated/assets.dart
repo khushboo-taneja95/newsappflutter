@@ -24,6 +24,7 @@ class Assets {
   static const String assetsLogowithback = 'assets/logowithback.png';
   static const String assetsMenu = 'assets/menu.png';
   static const String assetsNewsImages = 'assets/news_images.png';
+  static const String assetsPakhead = 'assets/pakhead.png';
   static const String assetsPalito = 'assets/palito.jpg';
   static const String assetsSpace = 'assets/space.jpeg';
   static const String fontsPanthalassa = 'assets/fonts/Panthalassa.ttf';
