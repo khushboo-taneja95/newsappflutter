@@ -4,8 +4,12 @@ import 'package:newsapplication/constant/colors.dart';
 class PanthalassaStyles {
   static const otherOptionsText = TextStyle(
       color: PanthalassaColors.colorBlack,
-      fontWeight: FontWeight.bold,
-      fontSize: 19);
+      fontWeight: FontWeight.w400,
+      fontSize: 14);
+
+  static const optionsText = TextStyle(
+      color: PanthalassaColors.colorBlack,
+      fontSize: 12);
 
   static const fontWeight400FontSize12SecondaryColor = TextStyle(
       color: PanthalassaColors.secondaryColor,
