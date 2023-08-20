@@ -256,49 +256,201 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                  child: SettingItem(
-                    title: "Bookmarks",
-                    leadingIcon: "assets/ic_bookmarks.png",
-                    onTap: () {},
-                  ),
+                  padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black54,
+                                  blurRadius: 5.0,
+                                  offset: Offset(0.0, 0.75))
+                            ],
+                            color: PanthalassaColors.appColor,
+                            borderRadius: BorderRadius.circular(59 / 2),
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/ic_bookmarks.png',
+                              width: 16,
+                              height: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Expanded(
+                          child: Text(
+                            "Bookmarks",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ]),
+                ),
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                //   child: SettingItem(
+                //     title: "Bookmarks",
+                //     leadingIcon: "assets/ic_bookmarks.png",
+                //     onTap: () {},
+                //   ),
+                // ),
+                Divider(
+                  height: 0,
+                  color: Colors.grey.withOpacity(0.8),
+                ),
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                //   child: SettingItem(
+                //     title: "Get Notifications",
+                //     leadingIcon: "assets/ic_notifications.png",
+                //     onTap: () {},
+                //   ),
+                // ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black54,
+                                  blurRadius: 5.0,
+                                  offset: Offset(0.0, 0.75))
+                            ],
+                            color: PanthalassaColors.colorRed,
+                            borderRadius: BorderRadius.circular(59 / 2),
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/ic_notifications.png',
+                              width: 16,
+                              height: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Expanded(
+                          child: Text(
+                            "Get Notifications",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ]),
                 ),
                 Divider(
                   height: 0,
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                  child: SettingItem(
-                    title: "Get Notifications",
-                    leadingIcon: "assets/ic_notifications.png",
-                    onTap: () {},
-                  ),
+                  padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black54,
+                                  blurRadius: 5.0,
+                                  offset: Offset(0.0, 0.75))
+                            ],
+                            color: PanthalassaColors.cardColor,
+                            borderRadius: BorderRadius.circular(59 / 2),
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/ic_privacypolicy.png',
+                              width: 16,
+                              height: 16,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Expanded(
+                          child: Text(
+                            "Privacy Policy",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ]),
                 ),
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                //   child: SettingItem(
+                //     title: "Privacy Policy",
+                //     leadingIcon: "assets/ic_privacypolicy.png",
+                //     onTap: () {},
+                //   ),
+                // ),
                 Divider(
                   height: 0,
                   color: Colors.grey.withOpacity(0.8),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                  child: SettingItem(
-                    title: "Privacy Policy",
-                    leadingIcon: "assets/ic_privacypolicy.png",
-                    onTap: () {},
-                  ),
+                  padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black54,
+                                  blurRadius: 5.0,
+                                  offset: Offset(0.0, 0.75))
+                            ],
+                            color: PanthalassaColors.colorGreen,
+                            borderRadius: BorderRadius.circular(59 / 2),
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/ic_rate_the_app.png',
+                              width: 16,
+                              height: 16,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Expanded(
+                          child: Text(
+                            "Rate This App",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ]),
                 ),
-                Divider(
-                  height: 0,
-                  color: Colors.grey.withOpacity(0.8),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                  child: SettingItem(
-                    title: "Rate This App",
-                    leadingIcon: "assets/ic_rate_the_app.png",
-                    onTap: () {},
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                //   child: SettingItem(
+                //     title: "Rate This App",
+                //     leadingIcon: "assets/ic_rate_the_app.png",
+                //     onTap: () {},
+                //   ),
+                // ),
               ],
             ),
           ),

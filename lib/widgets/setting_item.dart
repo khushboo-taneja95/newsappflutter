@@ -5,14 +5,16 @@ class SettingItem extends StatelessWidget {
   final String? leadingIcon;
   final String title;
   final GestureTapCallback? onTap;
-  const SettingItem({Key? key, required this.title, this.onTap, this.leadingIcon}) : super(key: key);
+  const SettingItem(
+      {Key? key, required this.title, this.onTap, this.leadingIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.only(top: 10,left: 15,bottom: 10),
+        padding: const EdgeInsets.only(top: 10, left: 15, bottom: 10),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
@@ -37,15 +39,6 @@ class SettingItem extends StatelessWidget {
               ),
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(6),
-          //   child: Image.asset(
-          //     Image.asset!,
-          //     color: NewsAppColors.colorBlack,
-          //     width: 22,
-          //     height: 22,
-          //   ),
-          // ),
           const SizedBox(
             width: 10,
           ),
@@ -55,11 +48,6 @@ class SettingItem extends StatelessWidget {
               style: const TextStyle(fontSize: 16),
             ),
           ),
-          // const Icon(
-          //   Icons.arrow_forward_ios,
-          //   color: Colors.grey,
-          //   size: 17,
-          // )
         ]),
       ),
     );
