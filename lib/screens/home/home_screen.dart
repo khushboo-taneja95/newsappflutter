@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapplication/constant/colors.dart';
 import 'package:readmore/readmore.dart';
+import 'package:newsapplication/screens/breaking_news/breaking_news.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key, this.callBack});
@@ -156,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget categoriesTopSlider(String topCat, int i) {
     return SizedBox(
-      width: 80,
+      width: 95,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -318,82 +319,88 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget breakingNewsSlider() {
-    return Container(
-      height: 200,
-      margin: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        image: const DecorationImage(
-            image: AssetImage("assets/kiara.jpg"), fit: BoxFit.cover),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: const Stack(
-          children: [
-            Positioned(
-              left: 20.0,
-              bottom: 50.0,
-              right: 10.0,
-              child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
-            ),
-            Positioned(
-              left: 20.0,
-              bottom: 10.0,
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.punch_clock,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '5 Hour',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: ((context) => BreakingNewsDetails())));
+      },
+      child: Container(
+        height: 200,
+        margin: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          image: const DecorationImage(
+              image: AssetImage("assets/kiara.jpg"), fit: BoxFit.cover),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: const Stack(
+            children: [
+              Positioned(
+                left: 20.0,
+                bottom: 50.0,
+                right: 10.0,
+                child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Sky Perfect JSAT order first satelite Sky Perfect JSAT order first Airbus satelite",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
               ),
-            ),
-            Positioned(
-              right: 20.0,
-              bottom: 10.0,
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '25',
-                    style: TextStyle(
-                      fontSize: 12,
+              Positioned(
+                left: 20.0,
+                bottom: 10.0,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.punch_clock,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '5 Hour',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              Positioned(
+                right: 20.0,
+                bottom: 10.0,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '25',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -454,7 +461,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget getPopularStoriesCard() {
     return InkWell(
-      onTap: (() {}),
+      onTap: (() {
+        Navigator.push(context,
+            MaterialPageRoute(builder: ((context) => BreakingNewsDetails())));
+      }),
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Row(

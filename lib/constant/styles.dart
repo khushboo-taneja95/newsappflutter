@@ -6,4 +6,11 @@ class PanthalassaStyles {
       color: PanthalassaColors.colorBlack,
       fontWeight: FontWeight.bold,
       fontSize: 19);
+
+  static const fontWeight400FontSize12SecondaryColor = TextStyle(
+      color: PanthalassaColors.secondaryColor,
+      fontWeight: FontWeight.w600,
+      fontSize: 16);
+
+
 }
