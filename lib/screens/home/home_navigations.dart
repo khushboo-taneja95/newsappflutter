@@ -50,7 +50,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 height: 32,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(width: 2, color: Colors.grey.withOpacity(.3)),
+                  border: Border.all(width: 1, color: Colors.grey),
                 ),
                 child: Icon(
                   Icons.menu,
