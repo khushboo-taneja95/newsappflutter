@@ -8,216 +8,228 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        leading: const Icon(
+          Icons.arrow_back,
+          color: Colors.black,
+        ),
+        title: const Text(
+          "Login",
+          style: TextStyle(color: Colors.black, fontSize: 14),
+        ),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+      ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Column(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => HomeNavigation()));
+              },
+              child: Container(
+                height: 50,
+                margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+                padding: const EdgeInsets.all(3.0),
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: PanthalassaColors.colorBlack),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/applelogo.png",
+                      height: 25,
+                      width: 25,
+                      color: PanthalassaColors.colorWhite,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text(
+                      'Sign in with apple',
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => HomeNavigation()));
+              },
+              child: Container(
+                height: 50,
+                margin: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(3.0),
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/googlelogo.png",
+                      height: 25,
+                      width: 25,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text(
+                      'Sign in with google',
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: PanthalassaColors.borderColorGrey,
+                          fontWeight: FontWeight.normal),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => HomeNavigation()));
+              },
+              child: Container(
+                height: 50,
+                margin: const EdgeInsets.only(left: 15.0, right: 15.0),
+                padding: const EdgeInsets.all(3.0),
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: PanthalassaColors.fecebookbtn),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/facebookicon.png",
+                      height: 25,
+                      width: 25,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Text(
+                      'Sign in with facebook',
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            orDivider(),
+            const SizedBox(
+              height: 10,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => HomeNavigation()));
+              },
+              child: Container(
+                height: 50,
+                margin: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(3.0),
+                decoration: BoxDecoration(
+                    color: PanthalassaColors.colorRed,
+                    border: Border.all(color: Colors.red),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Login With Email Or Mobile',
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: PanthalassaColors.colorWhite,
+                          fontWeight: FontWeight.normal),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    width: double.infinity,
-                    height: 200.0,
-                    child: Image.asset(
-                      "assets/logo.png",
-                      fit: BoxFit.fill,
-                    ),
+                  const Text(
+                    'New User?',
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
                   ),
-                  Container(
-                    color: Colors.white,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 60,
-                          ),
-                          const Text.rich(
-                            TextSpan(
-                              children: [
-                                TextSpan(
-                                    text: 'Sign - in',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 18)),
-                                TextSpan(
-                                    text: ' To Continue',
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 18)),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                              "Please log in using any of the options \n for the better and personalized \n experience",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 18),
-                              textAlign: TextAlign.center),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (ctx) => HomeNavigation()));
-                            },
-                            child: Container(
-                              height: 50,
-                              margin: const EdgeInsets.only(
-                                  left: 15.0, right: 15.0),
-                              padding: const EdgeInsets.all(3.0),
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  color: PanthalassaColors.colorBlack),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    "assets/applelogo.png",
-                                    height: 30,
-                                    width: 30,
-                                    color: PanthalassaColors.colorWhite,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  const Text(
-                                    'Sign in with apple',
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.white),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (ctx) => HomeNavigation()));
-                            },
-                            child: Container(
-                              height: 50,
-                              margin: const EdgeInsets.all(15.0),
-                              padding: const EdgeInsets.all(3.0),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10))),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    "assets/googlelogo.png",
-                                    height: 40,
-                                    width: 40,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  const Text(
-                                    'Sign in with google',
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (ctx) => HomeNavigation()));
-                            },
-                            child: Container(
-                              height: 50,
-                              margin: const EdgeInsets.only(
-                                  left: 15.0, right: 15.0),
-                              padding: const EdgeInsets.all(3.0),
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                  color: PanthalassaColors.fecebookbtn),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    "assets/facebookicon.png",
-                                    height: 30,
-                                    width: 30,
-                                    color: Colors.white,
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  const Text(
-                                    'Sign in with facebook',
-                                    style: TextStyle(
-                                        fontSize: 18, color: Colors.white),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: 20.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'By continuing, you agree to the \n User Agreement & Privacy Policy',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 18, color: Colors.black),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                        ],
-                      ),
+                  TextButton(
+                    child: const Text(
+                      'SignUp',
+                      style: TextStyle(
+                          color: PanthalassaColors.colorRed, fontSize: 12),
                     ),
+                    onPressed: () {
+                      //signup screen
+                    },
+                  ),
+                  const Spacer(),
+                  const Text(
+                    'Forgot Password',
+                    style: TextStyle(
+                        color: PanthalassaColors.colorRed, fontSize: 12),
                   ),
                 ],
               ),
-              Visibility(
-                visible: false,
-                child: Positioned(
-                  top: 150.0,
-                  child: Container(
-                    width: 80,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        width: 5,
-                        color: PanthalassaColors.appColor,
-                      ),
-                      image: const DecorationImage(
-                          image: AssetImage(
-                            'assets/logowithback.png',
-                          ),
-                          fit: BoxFit.fill),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+          ],
         ),
+      ),
+    );
+  }
+
+  Widget orDivider() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+      child: Row(
+        children: [
+          Flexible(
+            child: Container(
+              height: 1,
+              color: PanthalassaColors.borderColorGrey,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              'or login',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Flexible(
+            child: Container(
+              height: 1,
+              color: PanthalassaColors.borderColorGrey,
+            ),
+          ),
+        ],
       ),
     );
   }
