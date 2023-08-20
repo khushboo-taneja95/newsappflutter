@@ -21,7 +21,7 @@ class ToolbarWithTitleAndBackbutton extends StatelessWidget {
               height: 32,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(width: 1, color: Colors.grey),
+                border: Border.all(width: 2, color: Colors.grey.withOpacity(0.3)),
               ),
               child: Icon(
                 Icons.arrow_back,
@@ -56,6 +56,7 @@ class ToolbarWithTitleAndBackbutton extends StatelessWidget {
                         width: 32,
                         height: 32,
                          decoration: BoxDecoration(
+                           color: Colors.white,
                           shape: BoxShape.circle,
                          border: Border.all(width: 1, color: Colors.white),
                         ),
@@ -75,6 +76,7 @@ class ToolbarWithTitleAndBackbutton extends StatelessWidget {
                         width: 32,
                         height: 32,
                         decoration: BoxDecoration(
+                          color: Colors.white,
                           shape: BoxShape.circle,
                           border: Border.all(width: 1, color: Colors.white),
                         ),

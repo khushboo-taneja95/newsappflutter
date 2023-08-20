@@ -17,18 +17,6 @@ class HomeNavigation extends StatefulWidget {
 class _HomeNavigationState extends State<HomeNavigation> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = [];
-  List<String> topCat = [
-    "Top News",
-    "State",
-    "Life",
-    "Bollywood",
-    "Cricket",
-    "Women",
-    "Country",
-    "Carrier",
-    "Original",
-    "Utility"
-  ];
   @override
   void initState() {
     _widgetOptions = [
@@ -62,7 +50,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 height: 32,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(width: 1, color: Colors.grey),
+                  border: Border.all(width: 2, color: Colors.grey.withOpacity(.3)),
                 ),
                 child: Icon(
                   Icons.menu,
@@ -90,7 +78,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              width: 100,
+              width: 80,
               padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: PanthalassaColors.colorGrey.withOpacity(0.2),
@@ -108,7 +96,8 @@ class _HomeNavigationState extends State<HomeNavigation> {
                       height: 28,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(width: 1, color: Colors.grey),
+                        color: Colors.white,
+                        border: Border.all(width: 1, color: Colors.white),
                       ),
                       child: Icon(
                         Icons.search,
@@ -127,7 +116,8 @@ class _HomeNavigationState extends State<HomeNavigation> {
                       height: 28,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(width: 1, color: Colors.grey),
+                        color: Colors.white,
+                        border: Border.all(width: 1, color: Colors.white),
                       ),
                       child: Icon(
                         Icons.notifications,
@@ -149,23 +139,23 @@ class _HomeNavigationState extends State<HomeNavigation> {
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: PanthalassaColors.bottomTapColor,
-        elevation: 16,
+        elevation: 5,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.normal,fontSize: 10),
         selectedItemColor: PanthalassaColors.appColor,
         unselectedItemColor: PanthalassaColors.bottomTapUnselectedColor,
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/home.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
             ),
             activeIcon: Image.asset(
               "assets/activehome.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
               color: PanthalassaColors.appColor,
             ),
             label: 'Home',
@@ -173,13 +163,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/categories.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
             ),
             activeIcon: Image.asset(
               "assets/activecategories.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
               color: PanthalassaColors.appColor,
             ),
             label: 'Categories',
@@ -187,13 +177,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/favourite.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
             ),
             activeIcon: Image.asset(
               "assets/activefavourite.png",
-              width: 25,
-              height: 23,
+              width: 20,
+              height: 20,
               color: PanthalassaColors.appColor,
             ),
             label: 'Favourite',
@@ -201,13 +191,13 @@ class _HomeNavigationState extends State<HomeNavigation> {
           BottomNavigationBarItem(
             icon: Image.asset(
               "assets/account.png",
-              width: 30,
-              height: 28,
+              width: 20,
+              height: 20,
             ),
             activeIcon: Image.asset(
               "assets/activeaccount.png",
-              width: 30,
-              height: 28,
+              width: 20,
+              height: 20,
               color: PanthalassaColors.appColor,
             ),
             label: 'Profile',
@@ -225,134 +215,137 @@ class _HomeNavigationState extends State<HomeNavigation> {
 
   Widget getDrawer() {
     return SafeArea(
-      child: Drawer(
-        child: Column(children: [
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                const DrawerHeader(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "Panthalassa",
-                        style: TextStyle(
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Version: 1.0.3",
-                        style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      ),
-                    ],
+      child: SizedBox(
+        width: 60,
+        child: Drawer(
+          child: Column(children: [
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  const DrawerHeader(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Panthalassa",
+                          style: TextStyle(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Version: 1.0.3",
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                  child: SettingItem(
-                    title: "Bookmarks",
-                    leadingIcon: "assets/ic_bookmarks.png",
-                    onTap: () {},
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    child: SettingItem(
+                      title: "Bookmarks",
+                      leadingIcon: "assets/ic_bookmarks.png",
+                      onTap: () {},
+                    ),
                   ),
-                ),
-                Divider(
-                  height: 0,
-                  color: Colors.grey.withOpacity(0.8),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                  child: SettingItem(
-                    title: "Get Notifications",
-                    leadingIcon: "assets/ic_notifications.png",
-                    onTap: () {},
+                  Divider(
+                    height: 0,
+                    color: Colors.grey.withOpacity(0.8),
                   ),
-                ),
-                Divider(
-                  height: 0,
-                  color: Colors.grey.withOpacity(0.8),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                  child: SettingItem(
-                    title: "Privacy Policy",
-                    leadingIcon: "assets/ic_privacypolicy.png",
-                    onTap: () {},
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    child: SettingItem(
+                      title: "Get Notifications",
+                      leadingIcon: "assets/ic_notifications.png",
+                      onTap: () {},
+                    ),
                   ),
-                ),
-                Divider(
-                  height: 0,
-                  color: Colors.grey.withOpacity(0.8),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                  child: SettingItem(
-                    title: "Rate This App",
-                    leadingIcon: "assets/ic_rate_the_app.png",
-                    onTap: () {},
+                  Divider(
+                    height: 0,
+                    color: Colors.grey.withOpacity(0.8),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    child: SettingItem(
+                      title: "Privacy Policy",
+                      leadingIcon: "assets/ic_privacypolicy.png",
+                      onTap: () {},
+                    ),
+                  ),
+                  Divider(
+                    height: 0,
+                    color: Colors.grey.withOpacity(0.8),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+                    child: SettingItem(
+                      title: "Rate This App",
+                      leadingIcon: "assets/ic_rate_the_app.png",
+                      onTap: () {},
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (ctx) => const WelcomeScreen()));
-            },
-            child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 50.0, left: 10.0),
-                  child: Column(
-                    children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                boxShadow: const [
-                                  BoxShadow(
-                                      color: Colors.black54,
-                                      blurRadius: 5.0,
-                                      offset: Offset(0.0, 0.75))
-                                ],
-                                color: PanthalassaColors.colorRed,
-                                borderRadius: BorderRadius.circular(50 / 2),
-                              ),
-                              child: Center(
-                                child: Image.asset(
-                                  'assets/ic_logout.png',
-                                  width: 22,
-                                  height: 22,
-                                  color: Colors.white,
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => const WelcomeScreen()));
+              },
+              child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 50.0, left: 10.0),
+                    child: Column(
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: Colors.black54,
+                                        blurRadius: 5.0,
+                                        offset: Offset(0.0, 0.75))
+                                  ],
+                                  color: PanthalassaColors.colorRed,
+                                  borderRadius: BorderRadius.circular(50 / 2),
+                                ),
+                                child: Center(
+                                  child: Image.asset(
+                                    'assets/ic_logout.png',
+                                    width: 22,
+                                    height: 22,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Expanded(
-                              child: Text(
-                                'Logout',
-                                style: TextStyle(fontSize: 16),
+                              const SizedBox(
+                                width: 10,
                               ),
-                            ),
-                          ]),
-                    ],
-                  ),
-                )),
-          )
-        ]),
+                              const Expanded(
+                                child: Text(
+                                  'Logout',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ),
+                            ]),
+                      ],
+                    ),
+                  )),
+            )
+          ]),
+        ),
       ),
     );
   }

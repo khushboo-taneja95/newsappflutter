@@ -25,6 +25,19 @@ class _HomeScreenState extends State<HomeScreen> {
     "Original",
     "Utility"
   ];
+  final List<IconData> icons = [
+    Icons.newspaper,
+    Icons.safety_check,
+    Icons.nightlife,
+    Icons.drive_file_move,
+    Icons.sports_cricket,
+    Icons.woman,
+    Icons.countertops,
+    Icons.account_balance_outlined,
+    Icons.crop_original,
+    Icons.add_circle_outline,
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -52,27 +65,30 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.all(5),
       child: Column(
         children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Breaking News",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text(
-                "Show More",
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Breaking News",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400),
+                ),
+                Text(
+                  "Show More",
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 13,
+                      fontWeight: FontWeight.normal),
+                )
+              ],
+            ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           CarouselSlider(
               options: CarouselOptions(
@@ -146,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: topCat.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return categoriesTopSlider(topCat[index].toString(), index);
+                return categoriesTopSlider(topCat[index].toString(), index,icons[index]);
               },
             ),
           ),
@@ -155,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget categoriesTopSlider(String topCat, int i) {
+  Widget categoriesTopSlider(String topCat, int i, IconData icon) {
     return SizedBox(
       width: 95,
       child: Column(
@@ -183,16 +199,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
-                              Icons.sports_football,
+                              icon,
                               color: Colors.white,
                               size: 15,
                             ),
+                            SizedBox(width: 5),
                             Text(
                               topCat,
                               style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w400,
                                   fontSize: 10,
                                   color: Colors.white),
                             ),
@@ -217,12 +235,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     // color: Colors.red,
                     child: Center(
-                      child: Text(
-                        topCat,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 10,
-                            color: PanthalassaColors.appColor),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              icon,
+                              color: PanthalassaColors.appColor.withOpacity(.8),
+                              size: 15,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              topCat,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 10,
+                                  color: PanthalassaColors.colorBlack),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -284,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child: const Center(
                         child: Text(
-                          'See All',
+                          'Show more',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 12),
                         ),
@@ -421,7 +453,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.w500),
                 ),
                 const Spacer(),
                 GestureDetector(
@@ -435,7 +467,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Show More',
                       style: TextStyle(
                           color: Colors.grey,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                           fontSize: 12),
                     ),
                   ),
@@ -489,24 +521,86 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(width: 4),
-                    Text(
-                      "blogs.title.toString()",
+                    Padding(
+                      padding: const EdgeInsets.only(left: 0.0, top: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2),
+                              shape: BoxShape.circle,
+                              color: Colors.red,
+                            ),
+                            child: Center(
+                              child: Text(
+                                'CNN',
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 5),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "CNN India",
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 10,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            ".",
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 10,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "Feb 28, 2023",
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 10,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 4),
                     Text(
                       'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
                       maxLines: 3,
                       textAlign: TextAlign.justify,
                       overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(.5),
+                        fontWeight: FontWeight.normal,
+                        fontSize: 14,
+                      ),
                     ),
                     const SizedBox(height: 10),
-                    // Text(
-                    //   'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
-                    //   style: TextStyle(fontSize: 10),
-                    //   softWrap: false,
-                    //   maxLines: 1,
-                    //   overflow: TextOverflow.fade, //new
-                    // ),
+                    Text(
+                      "August 28, 2023",
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300,
+                        fontSize: 10,
+                      ),
+                    ),
                   ],
                 ),
               ),
