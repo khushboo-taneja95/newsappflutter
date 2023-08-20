@@ -28,5 +28,7 @@ class PanthalassaColors {
   static const fecebookbtn = Color(0xFF1877f2);
    static const Color profilePicBackgroundColor = Color(0xFFFFF9F6);
   static const Color inputBorderColor = Color(0x8851504F);
+  static const Color colorGrey = Color(0xFFD3D3D3);
+
 
 }

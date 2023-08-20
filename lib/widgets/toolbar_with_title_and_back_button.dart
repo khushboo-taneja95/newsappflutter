@@ -38,44 +38,95 @@ class ToolbarWithTitleAndBackbutton extends StatelessWidget {
       actions: <Widget>[
         Row(
           children: [
-            InkWell(
-              onTap: () {},
-              child: Container(
-                width: 32,
-                height: 32,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(width: 1, color: Colors.grey),
-                ),
-                child: Icon(
-                  Icons.download,
-                  color: Colors.black87,
-                  size: 20,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(width: 1, color: Colors.grey),
-                  ),
-                  child: Icon(
-                    Icons.browse_gallery,
-                    color: Colors.black87,
-                    size: 20,
-                  ),
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 90,
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: PanthalassaColors.colorGrey.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        //color: Colors.white,
+                        width: 32,
+                        height: 32,
+                         decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                         border: Border.all(width: 1, color: Colors.white),
+                        ),
+                        child: Icon(
+                          Icons.download,
+                          color: Colors.black87.withOpacity(0.8),
+                          size: 15,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        width: 32,
+                        height: 32,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(width: 1, color: Colors.white),
+                        ),
+                        child: Icon(
+                          Icons.browse_gallery,
+                          color: Colors.black87.withOpacity(0.8),
+                          size: 15,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
+            //   InkWell(
+            //     onTap: () {},
+            //     child: Container(
+            //       width: 32,
+            //       height: 32,
+            //       decoration: BoxDecoration(
+            //         shape: BoxShape.circle,
+            //         border: Border.all(width: 1, color: Colors.grey),
+            //       ),
+            //       child: Icon(
+            //         Icons.download,
+            //         color: Colors.black87,
+            //         size: 20,
+            //       ),
+            //     ),
+            //   ),
+            //   SizedBox(
+            //     width: 10,
+            //   ),
+            //   Padding(
+            //     padding: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+            //     child: InkWell(
+            //       onTap: () {},
+            //       child: Container(
+            //         width: 32,
+            //         height: 32,
+            //         decoration: BoxDecoration(
+            //           shape: BoxShape.circle,
+            //           border: Border.all(width: 1, color: Colors.grey),
+            //         ),
+            //         child: Icon(
+            //           Icons.browse_gallery,
+            //           color: Colors.black87,
+            //           size: 20,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
           ],
         )
       ],

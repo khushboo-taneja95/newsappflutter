@@ -62,10 +62,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 height: 32,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(
-                      width: 1,
-                      color: Colors.grey
-                  ),
+                  border: Border.all(width: 1, color: Colors.grey),
                 ),
                 child: Icon(
                   Icons.menu,
@@ -90,81 +87,58 @@ class _HomeNavigationState extends State<HomeNavigation> {
         //   ],
         // ),
         actions: <Widget>[
-          Row(
-            children: [
-              InkWell(
-                onTap: () {
-                  // handle button press
-                },
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      width: 1,
-                      color: Colors.grey
-                    ),
-                  ),
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.black87,
-                    size: 20,
-                  ),
-                ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: 100,
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: PanthalassaColors.colorGrey.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(20),
               ),
-              SizedBox(width: 10,),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0,0,8,0),
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                        width: 1,
-                        color: Colors.grey
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      // handle button press
+                    },
+                    child: Container(
+                      width: 28,
+                      height: 28,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 1, color: Colors.grey),
+                      ),
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.black87.withOpacity(0.8),
+                        size: 17,
+                      ),
                     ),
                   ),
-                  child: SizedBox(
-                    width: 30,
-                    height: 30,
-                    child: Stack(
-                      children: [
-                        Icon(
-                          Icons.notifications,
-                          color: Colors.black87,
-                          size: 24,
-                        ),
-                        Container(
-                          width: 25,
-                          height: 25,
-                          alignment: Alignment.topRight,
-                          // margin: EdgeInsets.only(top: 1),
-                          child: Container(
-                            width: 14,
-                            height: 14,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color(0xffc32c37),
-                                border: Border.all(color: Colors.white, width: 1)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(0.0),
-                              child: Center(
-                                child: Text(
-                                  '2',
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Container(
+                      width: 28,
+                      height: 28,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(width: 1, color: Colors.grey),
+                      ),
+                      child: Icon(
+                        Icons.notifications,
+                        color: Colors.black87.withOpacity(0.8),
+                        size: 17,
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           )
         ],
         backgroundColor: PanthalassaColors.colorWhite,
