@@ -51,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             getHomeBanners(),
+         //   getTopVideos(),
             getCategories(),
             getPopularStories(),
             // getRecentUpdates(),
@@ -105,20 +106,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: MediaQuery.of(context).size.width,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: const DecorationImage(
-                            fit: BoxFit.fill,
-                            colorFilter: ColorFilter.mode(
-                                Colors.black45, BlendMode.darken),
-                            image: AssetImage('assets/pakhead.png'),
-                          ),
-                          boxShadow: const [
+                        borderRadius: BorderRadius.circular(10),
+                        image: const DecorationImage(
+                          fit: BoxFit.fill,
+                          // colorFilter: ColorFilter.mode(
+                          //     Colors.black45, BlendMode.darken),
+                          image: AssetImage('assets/pakhead.png'),
+                        ),
+                        /* boxShadow: const [
                             BoxShadow(
                                 color: Colors.grey,
                                 spreadRadius: 2,
                                 blurRadius: 8,
                                 offset: Offset(4, 4))
-                          ]),
+                          ]*/
+                      ),
                       child: const Text(
                         '',
                         style: TextStyle(color: Colors.white, fontSize: 15),
@@ -126,6 +128,103 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   )
               ]),
+        ],
+      ),
+    );
+  }
+
+  Widget getTopVideos() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8, top: 10.0),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Top Videos",
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold),
+              ),
+              const Spacer(),
+              GestureDetector(
+                onTap: () {
+                  if (widget.callBack != null) {
+                    widget.callBack!(2);
+                  }
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(35),
+                  ),
+                  child: const Center(
+                    child: Row(
+                      children: [
+                        Text(
+                          'More',
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 12),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          size: 12,
+                          color: PanthalassaColors.colorRed,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          // Stack(
+          //   children: <Widget>[
+          //     Container(
+          //         decoration:   BoxDecoration(color: Colors.white, border: Border.all(), image: DecorationImage(
+          //           image: NetworkImage('https://images.news18.com/ibnkhabar/uploads/2023/08/1692545057_f52764ab-ac6a-4fdb-b022-c470a2cd855e-16925450573x2.jpeg?im=Resize,width=384,aspect=fit,type=normal'),
+          //           fit: BoxFit.cover,
+          //         ),),
+          //          height: 100,
+          //         width: 100,
+          //      ),
+          //     Align(
+          //       alignment: Alignment.center,
+          //       child: Icon(Icons.video_collection,color: Colors.white,size: 30,),
+          //     )
+          //   ],
+          // )
+          Center(
+            child: Stack(
+              children: [
+                Container(
+                   child: Image.network(
+                    'https://images.news18.com/ibnkhabar/uploads/2023/08/1692545057_f52764ab-ac6a-4fdb-b022-c470a2cd855e-16925450573x2.jpeg?im=Resize,width=384,aspect=fit,type=normal',
+                    height: 100,
+                    width:100,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Container(
+                    alignment: Alignment.center,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Icon(
+                        Icons.video_collection,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    )),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -162,7 +261,8 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: topCat.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return categoriesTopSlider(topCat[index].toString(), index,icons[index]);
+                return categoriesTopSlider(
+                    topCat[index].toString(), index, icons[index]);
               },
             ),
           ),

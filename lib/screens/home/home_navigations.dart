@@ -148,8 +148,8 @@ class _HomeNavigationState extends State<HomeNavigation> {
             padding: EdgeInsets.zero,
             children: [
               UserAccountsDrawerHeader(
-                accountName: Text('Customer'),
-                accountEmail: Text('customer@gmail.com'),
+                accountName: Text('Customer',style: TextStyle(fontSize: 12,color: Colors.black87),),
+                accountEmail: Text('customer@gmail.com',style: TextStyle(fontSize: 12,color: Colors.black87),),
                 currentAccountPicture: CircleAvatar(
                   child: ClipOval(
                     child: Image.network(
@@ -161,30 +161,29 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   ),
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
-                  image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: NetworkImage(
-                          'https://oflutter.com/wp-content/uploads/2021/02/profile-bg3.jpg')),
+                  color: Colors.white,
+                  // image: DecorationImage(
+                  //     fit: BoxFit.fill,
+                  //     image: AssetImage('assets/logo.png',)),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.favorite),
+                leading: Icon(Icons.favorite,color: Colors.red,),
                 title: Text('Favorites'),
                 onTap: () => null,
               ),
               ListTile(
-                leading: Icon(Icons.person),
+                leading: Icon(Icons.person,color: Colors.black87,),
                 title: Text('Friends'),
                 onTap: () => null,
               ),
               ListTile(
-                leading: Icon(Icons.share),
+                leading: Icon(Icons.share,color: Colors.green,),
                 title: Text('Share'),
                 onTap: () => null,
               ),
               ListTile(
-                leading: Icon(Icons.notifications),
+                leading: Icon(Icons.notifications,color: Colors.red),
                 title: Text('Request'),
                 onTap: () => null,
                 trailing: ClipOval(
@@ -206,20 +205,21 @@ class _HomeNavigationState extends State<HomeNavigation> {
               ),
               Divider(),
               ListTile(
-                leading: Icon(Icons.settings),
+                leading: Icon(Icons.settings,color: Colors.amber),
                 title: Text('Settings'),
                 onTap: () => null,
               ),
               ListTile(
-                leading: Icon(Icons.description),
-                title: Text('Policies'),
+                leading: Icon(Icons.description,color: Colors.green),
+                title: Text('Policies',),
                 onTap: () => null,
               ),
               Divider(),
               ListTile(
-                title: Text('Exit'),
-                leading: Icon(Icons.exit_to_app),
-                onTap: () => null,
+                title: Text('Logout'),
+                leading: Icon(Icons.power_settings_new_rounded,color: Colors.red),
+                onTap: () =>          Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => const WelcomeScreen())),
               ),
             ],
           ),
