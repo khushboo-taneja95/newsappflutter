@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 
 class PanthalassaStyles {
   static const otherOptionsText = TextStyle(

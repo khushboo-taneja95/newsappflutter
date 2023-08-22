@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
+import 'package:newsapplication/features/biography/presentation/biography_category/pages/biography_category.dart';
 import 'package:newsapplication/screens/categories/categories.dart';
 import 'package:newsapplication/screens/favourite/favourite.dart';
 import 'package:newsapplication/screens/home/home_screen.dart';
@@ -139,8 +140,9 @@ class _HomeNavigationState extends State<HomeNavigation> {
             border: Border.all(
               color: PanthalassaColors.textColorWhite,
             ),
-            borderRadius: const BorderRadius.only(topRight:Radius.circular(10),bottomRight:Radius.circular(10))
-        ),
+            borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(10),
+                bottomRight: Radius.circular(10))),
         child: Drawer(
           backgroundColor: PanthalassaColors.textColorWhite,
           child: ListView(
@@ -148,18 +150,24 @@ class _HomeNavigationState extends State<HomeNavigation> {
             padding: EdgeInsets.zero,
             children: [
               UserAccountsDrawerHeader(
-                accountName: Text('Customer',style: TextStyle(fontSize: 12,color: Colors.black87),),
-                accountEmail: Text('customer@gmail.com',style: TextStyle(fontSize: 12,color: Colors.black87),),
-                currentAccountPicture: CircleAvatar(
-                  child: ClipOval(
-                    child: Image.network(
-                      'https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png',
-                      fit: BoxFit.cover,
-                      width: 90,
-                      height: 90,
-                    ),
-                  ),
+                accountName: Text(
+                  'Customer',
+                  style: TextStyle(fontSize: 12, color: Colors.black87),
                 ),
+                accountEmail: Text(
+                  'customer@gmail.com',
+                  style: TextStyle(fontSize: 12, color: Colors.black87),
+                ),
+                // currentAccountPicture: CircleAvatar(
+                //   child: ClipOval(
+                //     child: Image.network(
+                //       'https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png',
+                //       fit: BoxFit.cover,
+                //       width: 90,
+                //       height: 90,
+                //     ),
+                //   ),
+                // ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   // image: DecorationImage(
@@ -168,22 +176,34 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.favorite,color: Colors.red,),
+                leading: Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                ),
                 title: Text('Favorites'),
                 onTap: () => null,
               ),
               ListTile(
-                leading: Icon(Icons.person,color: Colors.black87,),
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.black87,
+                ),
                 title: Text('Friends'),
                 onTap: () => null,
               ),
               ListTile(
-                leading: Icon(Icons.share,color: Colors.green,),
+                leading: Icon(
+                  Icons.share,
+                  color: Colors.green,
+                ),
                 title: Text('Share'),
-                onTap: () => null,
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (ctx) => const BiographyCategoryPage())),
               ),
               ListTile(
-                leading: Icon(Icons.notifications,color: Colors.red),
+                leading: Icon(Icons.notifications, color: Colors.red),
                 title: Text('Request'),
                 onTap: () => null,
                 trailing: ClipOval(
@@ -205,20 +225,23 @@ class _HomeNavigationState extends State<HomeNavigation> {
               ),
               Divider(),
               ListTile(
-                leading: Icon(Icons.settings,color: Colors.amber),
+                leading: Icon(Icons.settings, color: Colors.amber),
                 title: Text('Settings'),
                 onTap: () => null,
               ),
               ListTile(
-                leading: Icon(Icons.description,color: Colors.green),
-                title: Text('Policies',),
+                leading: Icon(Icons.description, color: Colors.green),
+                title: Text(
+                  'Policies',
+                ),
                 onTap: () => null,
               ),
               Divider(),
               ListTile(
                 title: Text('Logout'),
-                leading: Icon(Icons.power_settings_new_rounded,color: Colors.red),
-                onTap: () =>          Navigator.push(context,
+                leading:
+                    Icon(Icons.power_settings_new_rounded, color: Colors.red),
+                onTap: () => Navigator.push(context,
                     MaterialPageRoute(builder: (ctx) => const WelcomeScreen())),
               ),
             ],
@@ -231,7 +254,8 @@ class _HomeNavigationState extends State<HomeNavigation> {
         elevation: 5,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.normal,fontSize: 10),
+        selectedLabelStyle:
+            TextStyle(fontWeight: FontWeight.normal, fontSize: 10),
         selectedItemColor: PanthalassaColors.appColor,
         unselectedItemColor: PanthalassaColors.bottomTapUnselectedColor,
         items: [
@@ -433,7 +457,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
           )
         ]),
       ),*/
-      Container(
+          Container(
         width: MediaQuery.of(context).size.width * 0.5,
         child: Drawer(
           width: 50,

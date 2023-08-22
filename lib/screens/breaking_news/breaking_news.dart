@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:newsapplication/constant/colors.dart';
-import 'package:newsapplication/constant/styles.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 import 'package:newsapplication/widgets/toolbar_with_title_and_back_button.dart';
 import 'package:read_more_text/read_more_text.dart';
 
@@ -50,13 +49,13 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
             width: double.infinity,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
-                image: DecorationImage(
+                image: const DecorationImage(
                     image: AssetImage('assets/pakhead.png'), fit: BoxFit.fill)),
           ),
-          SizedBox(
+          const SizedBox(
             height: 2,
           ),
-          Text(
+          const Text(
             'Express Investigations',
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w200),
           ),
@@ -84,10 +83,10 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
                     shape: BoxShape.circle,
                     color: Colors.red,
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'CNN',
-                      style: const TextStyle(
+                      style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 8),
@@ -97,9 +96,9 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
                 const SizedBox(
                   width: 5,
                 ),
-                Text(
+                const Text(
                   "CNN India",
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w300,
                     fontSize: 12,
@@ -108,9 +107,9 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
                 const SizedBox(
                   width: 10,
                 ),
-                Text(
+                const Text(
                   "-",
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -119,9 +118,9 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
                 const SizedBox(
                   width: 5,
                 ),
-                Text(
+                const Text(
                   "Feb 28, 2023",
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w300,
                     fontSize: 12,
@@ -130,9 +129,9 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
                 const SizedBox(
                   width: 5,
                 ),
-                Text(
+                const Text(
                   "-",
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -141,9 +140,9 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
                 const SizedBox(
                   width: 5,
                 ),
-                Text(
+                const Text(
                   "World",
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w300,
                     fontSize: 12,
@@ -153,11 +152,11 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
             ),
           ),
           const SizedBox(height: 10.0),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
+          const Padding(
+            padding: EdgeInsets.all(4.0),
             child: Text(
               "Drug pandemic in J&K: Networks of terror intersect with drug supply lines, on ground, from sky and online",
-              style: const TextStyle(
+              style: TextStyle(
                 color: PanthalassaColors.colorBlack,
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
@@ -167,11 +166,11 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
           const SizedBox(height: 5.0),
           imageBlogs(),
           const SizedBox(height: 15.0),
-          Padding(
-            padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 4.0, right: 4.0),
             child: Text(
               'From the sky, drones from Pakistan that drop drugs across the border; on the ground, a distribution model akin to a multi-level marketing scheme where an addict ropes in more addicts; consignments ferried from neighbouring states; prescription drugs sold against cancelled licences; and opioids procured from the darknet.',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 height: 1.5,
                 color: Colors.black,
@@ -180,11 +179,11 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
             ),
           ),
           const SizedBox(height: 15.0),
-          Padding(
-            padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 4.0, right: 4.0),
             child: Text(
               'These are the myriad supply lines that feed and fuel the drug pandemic in Jammu and Kashmir which has stretched the public health system to its limits and poses a set of unprecedented challenges to security agencies, an investigation by The Indian Express has found. Analysing police records of seizure and arrests, both at an all-time high, and interviews with top officials also reveals that, in many cases, the drug trade and terror networks also run parallel — and often intersect.',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 height: 1.5,
                 color: Colors.black,
@@ -193,8 +192,8 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
             ),
           ),
           const SizedBox(height: 15.0),
-          Padding(
-            padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 4.0, right: 4.0),
             child: ReadMoreText(
               'From the sky, drones from Pakistan that drop drugs across the border; on the ground, a distribution model akin to a multi-level marketing scheme where an addict ropes in more addicts; consignments ferried from neighbouring states; prescription drugs sold against cancelled licences; and opioids procured from the darknet.\n'
               'These are the myriad supply lines that feed and fuel the drug pandemic in Jammu and Kashmir which has stretched the public health system to its limits and poses a set of unprecedented challenges to security agencies, an investigation by The Indian Express has found. Analysing police records of seizure and arrests, both at an all-time high, and interviews with top officials also reveals that, in many cases, the drug trade and terror networks also run parallel — and often intersect.\n'
@@ -202,7 +201,7 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
               numLines: 15,
               readMoreText: 'Read more',
               readLessText: 'Read less',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 height: 1.5,
                 color: Colors.black,

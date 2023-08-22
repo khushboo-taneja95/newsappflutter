@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 import 'package:readmore/readmore.dart';
 import 'package:newsapplication/screens/breaking_news/breaking_news.dart';
 
