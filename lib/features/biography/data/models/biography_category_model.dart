@@ -9,16 +9,16 @@ class BiographyCategoryModel {
     if (json['BiographyCategory'] != null) {
       biographycategory = <BiographyCategory>[];
       json['BiographyCategory'].forEach((v) {
-        biographycategory!.add(new BiographyCategory.fromJson(v));
+        biographycategory!.add(BiographyCategory.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    if (this.biographycategory != null) {
-      data['BiographyCategory'] = this.biographycategory!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    if (biographycategory != null) {
+      data['BiographyCategory'] = biographycategory!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -68,19 +68,19 @@ class BiographyCategory {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['hindi_name'] = this.hindiName;
-    data['slug'] = this.slug;
-    data['status'] = this.status;
-    data['image'] = this.image;
-    data['description'] = this.description;
-    data['parent_id'] = this.parentId;
-    data['subtitle'] = this.subtitle;
-    data['dob'] = this.dob;
-    data['parent'] = this.parent;
-    data['field_type'] = this.fieldType;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['hindi_name'] = hindiName;
+    data['slug'] = slug;
+    data['status'] = status;
+    data['image'] = image;
+    data['description'] = description;
+    data['parent_id'] = parentId;
+    data['subtitle'] = subtitle;
+    data['dob'] = dob;
+    data['parent'] = parent;
+    data['field_type'] = fieldType;
     return data;
   }
 }

@@ -30,44 +30,59 @@ class _BiographyCategoryBodyState extends State<BiographyCategoryBody> {
   int participatntCount = 0;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BiographyCategoryBloc, BiographyCategoryState>(
-      builder: (context, state) {
-        if (state is BiographyCategoryLoaded) {
-          participatntCount = state.biographycategory.length;
-        }
-        return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.red,
-            ),
-            body: BlocBuilder<BiographyCategoryBloc, BiographyCategoryState>(
-              builder: (context, state) {
-                if (state is BiographyCategoryLoaded) {
-                  return _getlikedList(context, state.biographycategory);
-                } else if (state is BiographyCategoryLoading) {
-                  return const Center(child: CircularProgressIndicator());
-                } else {
-                  return SizedBox(
-                    width: 500,
-                    height: 200,
-                    child: Container(
-                      color: Colors.transparent,
-                      child: const Center(
-                        child: Text(
-                          'Data not available',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                }
-              },
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.red,
+        ),
+        body: BlocConsumer<BiographyCategoryBloc, BiographyCategoryState>(
+          listener: (context, state) {
+            if (state is BiographyCategoryError) {
+              Text("sldkfjksdjfksd");
+            }
+          },
+          builder: (context, state) {
+            if (state is BiographyCategoryLoading) {
+              return const Center(
+                  child: CircularProgressIndicator(
+                color: Colors.pink,
+              ));
+            } else if (state is BiographyCategoryLoaded) {
+              return _getlikedList(context, state.biographycategory);
+            }
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Colors.cyan,
             ));
-      },
-    );
+          },
+        ));
+
+    // body: BlocBuilder<BiographyCategoryBloc, BiographyCategoryState>(
+    //   builder: (context, state) {
+    //     if (state is BiographyCategoryLoaded) {
+    //       return _getlikedList(context, state.biographycategory);
+    //     } else if (state is BiographyCategoryLoading) {
+    //       return const Center(child: CircularProgressIndicator());
+    //     } else {
+    //       return SizedBox(
+    //         width: 500,
+    //         height: 200,
+    //         child: Container(
+    //           color: Colors.transparent,
+    //           child: const Center(
+    //             child: Text(
+    //               'Data not available',
+    //               style: TextStyle(
+    //                 color: Colors.black,
+    //                 fontSize: 20,
+    //                 fontWeight: FontWeight.bold,
+    //               ),
+    //             ),
+    //           ),
+    //         ),
+    //       );
+    //     }
+    //   },
+    // ));
   }
 
   Widget _getlikedList(

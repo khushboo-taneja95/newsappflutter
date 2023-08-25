@@ -12,7 +12,9 @@ class BiographyCategoryRemoteDataSourceImpl
     extends BiographyCategoryRemoteDataSource {
   @override
   Future<BiographyCategoryModel> getBiographyCategory() async {
-    var response = await http.post(Uri.http(AppUrl.getbiographycategory));
+    var response = await http.post(Uri.parse(AppUrl.getbiographycategory));
+    print('response of morderer');
+    print(response.body.toString());
     if (response.statusCode == 200) {
         return BiographyCategoryModel.fromJson(jsonDecode(response.body));
     } else {

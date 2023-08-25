@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:newsapplication/core/di/injection.dart';
 import 'package:newsapplication/screens/splash/splash_screen.dart';
 
 void main() async {
+  registerDependncies();
   runApp(const MyApp());
 }
 
