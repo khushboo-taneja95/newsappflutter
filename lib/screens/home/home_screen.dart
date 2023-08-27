@@ -50,9 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            getHomeBanners(),
-         //   getTopVideos(),
             getCategories(),
+            getHomeBanners(),
+            //   getTopVideos(),
+
             getPopularStories(),
             // getRecentUpdates(),
           ],
@@ -66,31 +67,31 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.all(5),
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Breaking News",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400),
-                ),
-                Text(
-                  "Show More",
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 13,
-                      fontWeight: FontWeight.normal),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
+          // const Padding(
+          //   padding: EdgeInsets.all(5.0),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Text(
+          //         "Breaking News",
+          //         style: TextStyle(
+          //             color: Colors.black,
+          //             fontSize: 16,
+          //             fontWeight: FontWeight.w400),
+          //       ),
+          //       Text(
+          //         "Show More",
+          //         style: TextStyle(
+          //             color: Colors.grey,
+          //             fontSize: 13,
+          //             fontWeight: FontWeight.normal),
+          //       )
+          //     ],
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 10,
+          // ),
           CarouselSlider(
               options: CarouselOptions(
                 height: 180.0,
@@ -141,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Top Videos",
                 style: TextStyle(
                     color: Colors.red,
@@ -182,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           // Stack(
@@ -205,16 +206,16 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Stack(
               children: [
                 Container(
-                   child: Image.network(
+                  child: Image.network(
                     'https://images.news18.com/ibnkhabar/uploads/2023/08/1692545057_f52764ab-ac6a-4fdb-b022-c470a2cd855e-16925450573x2.jpeg?im=Resize,width=384,aspect=fit,type=normal',
                     height: 100,
-                    width:100,
+                    width: 100,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Container(
                     alignment: Alignment.center,
-                    child: Align(
+                    child: const Align(
                       alignment: Alignment.center,
                       child: Icon(
                         Icons.video_collection,
@@ -236,25 +237,6 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // const Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     Text(
-          //       "Categories ",
-          //       style: TextStyle(
-          //           color: Colors.black,
-          //           fontSize: 16,
-          //           fontWeight: FontWeight.bold),
-          //     ),
-          //     Text(
-          //       "Show more",
-          //       style: TextStyle(
-          //           color: Colors.grey,
-          //           fontSize: 13,
-          //           fontWeight: FontWeight.bold),
-          //     )
-          //   ],
-          // ),
           SizedBox(
             height: 80,
             child: ListView.builder(
@@ -273,45 +255,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget categoriesTopSlider(String topCat, int i, IconData icon) {
     return SizedBox(
-      width: 95,
+      width: 115,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.all(1.5),
+            padding:  const EdgeInsets.fromLTRB(8,0,8,8),
             child: i == 0
                 ? Container(
-                    height: 30,
+                    height: 45,
                     decoration: BoxDecoration(
                       color: PanthalassaColors.appColor,
                       borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 4,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: Colors.grey.withOpacity(0.5),
+                      //     spreadRadius: 2,
+                      //     blurRadius: 4,
+                      //     offset: const Offset(0, 3),
+                      //   ),
+                      // ],
                     ),
                     // color: Colors.red,
-                    child: Center(
+                    child: const Center(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              icon,
-                              color: Colors.white,
-                              size: 15,
-                            ),
                             SizedBox(width: 5),
                             Text(
-                              topCat,
-                              style: const TextStyle(
+                              "बिहार",
+                              style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 10,
+                                  fontSize: 14,
                                   color: Colors.white),
                             ),
                           ],
@@ -320,38 +297,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   )
                 : Container(
-                    height: 30,
+                    height: 45,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: PanthalassaColors.appColor,
                       borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 4,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: Colors.grey.withOpacity(0.5),
+                      //     spreadRadius: 2,
+                      //     blurRadius: 4,
+                      //     offset: const Offset(0, 3),
+                      //   ),
+                      // ],
                     ),
                     // color: Colors.red,
-                    child: Center(
+                    child: const Center(
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              icon,
-                              color: PanthalassaColors.appColor.withOpacity(.8),
-                              size: 15,
-                            ),
                             SizedBox(width: 5),
                             Text(
-                              topCat,
-                              style: const TextStyle(
+                              "बिहार",
+                              style: TextStyle(
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 10,
-                                  color: PanthalassaColors.colorBlack),
+                                  fontSize: 14,
+                                  color: PanthalassaColors.colorWhite),
                             ),
                           ],
                         ),
@@ -454,7 +426,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => BreakingNewsDetails())));
+            MaterialPageRoute(builder: ((context) => const BreakingNewsDetails())));
       },
       child: Container(
         height: 200,
@@ -578,7 +550,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             child: ListView.builder(
               itemCount: 20,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               itemBuilder: (context, index) {
@@ -595,7 +567,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return InkWell(
       onTap: (() {
         Navigator.push(context,
-            MaterialPageRoute(builder: ((context) => BreakingNewsDetails())));
+            MaterialPageRoute(builder: ((context) => const BreakingNewsDetails())));
       }),
       child: Padding(
         padding: const EdgeInsets.all(5.0),
@@ -634,10 +606,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               shape: BoxShape.circle,
                               color: Colors.red,
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 'CNN',
-                                style: const TextStyle(
+                                style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 5),
@@ -647,9 +619,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             width: 5,
                           ),
-                          Text(
+                          const Text(
                             "CNN India",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
                               fontSize: 10,
@@ -658,9 +630,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text(
+                          const Text(
                             ".",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w400,
                               fontSize: 10,
@@ -669,9 +641,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             width: 5,
                           ),
-                          Text(
+                          const Text(
                             "Feb 28, 2023",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
                               fontSize: 10,
@@ -693,9 +665,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
+                    const Text(
                       "August 28, 2023",
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w300,
                         fontSize: 10,
