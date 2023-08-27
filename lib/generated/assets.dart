@@ -21,6 +21,7 @@ class Assets {
   static const String assetsIcRateTheApp = 'assets/ic_rate_the_app.png';
   static const String assetsKiara = 'assets/kiara.jpg';
   static const String assetsLogo = 'assets/logo.png';
+  static const String assetsLogonew = 'assets/logonew.png';
   static const String assetsLogowithback = 'assets/logowithback.png';
   static const String assetsMenu = 'assets/menu.png';
   static const String assetsNewsImages = 'assets/news_images.png';
