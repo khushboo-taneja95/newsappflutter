@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapplication/core/di/injection.dart';
 import 'package:newsapplication/screens/splash/splash_screen.dart';
+import 'package:newsapplication/screens/welcome/welcome_screen.dart';
 
 void main() async {
   registerDependncies();
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Panthalassa"
       ),
-        home: const SplashScreen());
+        home: const WelcomeScreen());
         // home: HomeNavigation(index: 0));
   }
 }
