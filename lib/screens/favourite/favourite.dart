@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
 

@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
+import 'package:newsapplication/panthalassa/presentation/screens/biography/ui/biographyscreen.dart';
 import 'package:readmore/readmore.dart';
 import 'package:newsapplication/screens/breaking_news/breaking_news.dart';
 
@@ -112,77 +113,83 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(2, 0, 2, 2),
-            child: i == 0
-                ? Container(
-                    height: 35,
-                    decoration: BoxDecoration(
-                      color: PanthalassaColors.appColor,
-                      borderRadius: BorderRadius.circular(30),
-                      // boxShadow: [
-                      //   BoxShadow(
-                      //     color: Colors.grey.withOpacity(0.5),
-                      //     spreadRadius: 2,
-                      //     blurRadius: 4,
-                      //     offset: const Offset(0, 3),
-                      //   ),
-                      // ],
-                    ),
-                    // color: Colors.red,
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const SizedBox(width: 5),
-                            Text(
-                              topCat,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  color: Colors.white),
-                            ),
-                          ],
+          InkWell(
+            onTap: () {
+                Navigator.push(context,
+            MaterialPageRoute(builder: ((context) => BiographyPage())));
+            },
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(2, 0, 2, 2),
+              child: i == 0
+                  ? Container(
+                      height: 35,
+                      decoration: BoxDecoration(
+                        color: PanthalassaColors.appColor,
+                        borderRadius: BorderRadius.circular(30),
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     color: Colors.grey.withOpacity(0.5),
+                        //     spreadRadius: 2,
+                        //     blurRadius: 4,
+                        //     offset: const Offset(0, 3),
+                        //   ),
+                        // ],
+                      ),
+                      // color: Colors.red,
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const SizedBox(width: 5),
+                              Text(
+                                topCat,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  : Container(
+                      height: 35,
+                      decoration: BoxDecoration(
+                        color: PanthalassaColors.appColor,
+                        borderRadius: BorderRadius.circular(30),
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     color: Colors.grey.withOpacity(0.5),
+                        //     spreadRadius: 2,
+                        //     blurRadius: 4,
+                        //     offset: const Offset(0, 3),
+                        //   ),
+                        // ],
+                      ),
+                      // color: Colors.red,
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const SizedBox(width: 5),
+                              Text(
+                                topCat,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    color: PanthalassaColors.colorWhite),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  )
-                : Container(
-                    height: 35,
-                    decoration: BoxDecoration(
-                      color: PanthalassaColors.appColor,
-                      borderRadius: BorderRadius.circular(30),
-                      // boxShadow: [
-                      //   BoxShadow(
-                      //     color: Colors.grey.withOpacity(0.5),
-                      //     spreadRadius: 2,
-                      //     blurRadius: 4,
-                      //     offset: const Offset(0, 3),
-                      //   ),
-                      // ],
-                    ),
-                    // color: Colors.red,
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const SizedBox(width: 5),
-                            Text(
-                              topCat,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  color: PanthalassaColors.colorWhite),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+            ),
           ),
         ],
       ),

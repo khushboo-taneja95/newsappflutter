@@ -13,16 +13,17 @@ class ListTileBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BiographypageBloc, BiographypageState>(
       builder: (context, state) {
-        return Column(
-          children: [
-            Text(
-              data.categories![0].name.toString(),
+        return ListView.builder(
+          itemCount: data.categories!.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Text(
+              data.categories![index].name.toString(),
               style: const TextStyle(
                   color: Colors.blue,
                   fontSize: 40.00,
                   fontWeight: FontWeight.bold),
-            ),
-          ],
+            );
+          },
         );
       },
     );
