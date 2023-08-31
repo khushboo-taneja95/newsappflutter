@@ -8,6 +8,7 @@ class Assets {
   static const String assetsActivefavourite = 'assets/activefavourite.png';
   static const String assetsActivehome = 'assets/activehome.png';
   static const String assetsApplelogo = 'assets/applelogo.png';
+  static const String assetsBackground = 'assets/background.jpg';
   static const String assetsCategories = 'assets/categories.png';
   static const String assetsFacebookicon = 'assets/facebookicon.png';
   static const String assetsFavourite = 'assets/favourite.png';

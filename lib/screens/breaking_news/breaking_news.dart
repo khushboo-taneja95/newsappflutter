@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:newsapplication/core/themes/colors.dart';
+import 'package:newsapplication/constant/colors.dart';
 import 'package:newsapplication/widgets/toolbar_with_title_and_back_button.dart';
 import 'package:read_more_text/read_more_text.dart';
 
@@ -18,7 +18,7 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [const ToolbarWithTitleAndBackbutton(), listData()],
+          children: [toolbar(),listData()],
         ),
       ),
     );
@@ -248,4 +248,53 @@ class _BreakingNewsDetailsState extends State<BreakingNewsDetails> {
       ],
     );
   }
+  Widget toolbar() {
+    return Container(
+        height: 80,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: PanthalassaColors.appColor,
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset(
+              "assets/splash_logo.jpg",
+              height: 60,
+              width: 60,
+              fit: BoxFit.fill,
+            ),
+            const Icon(Icons.download,color: PanthalassaColors.appColor,size:40),
+            const Text('Select City',style: TextStyle(color:PanthalassaColors.appColor,fontSize: 17,fontWeight: FontWeight.bold),),
+            Material(
+              child: Ink(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 2,color: PanthalassaColors.appColor,style: BorderStyle.solid),
+                  color:PanthalassaColors.colorWhite,
+                ),
+                child: InkWell(
+                  //borderRadius: BorderRadius.circular(100.0),
+                  onTap: () {},
+                  child: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Icon(
+                      Icons.search,
+                      size: 20.0,
+                      color: PanthalassaColors.appColor,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            InkWell(  onTap: () {
+              Scaffold.of(context).openDrawer();
+            },child:Icon(Icons.menu,color: PanthalassaColors.appColor,size:40)),
+          ],
+        ));
+  }
+
 }

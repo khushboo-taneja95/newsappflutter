@@ -49,7 +49,7 @@ class _BiographyPageState extends State<BiographyPage> {
       appBar: AppBar(
         title: const Text("POST request"),
       ),
-      body: BlocBuilder<BiographypageBloc,BiographypageState>(
+      body: BlocBuilder<BiographypageBloc, BiographypageState>(
         builder: (context, state) {
           if (state is BiographypageLoaded) {
             return buildLoadedlayout(state.data);
@@ -58,7 +58,7 @@ class _BiographyPageState extends State<BiographyPage> {
           } else if (state is BiographypageError) {
             return const ErrorScreenBuilder();
           } else {
-            return  buildInitialLayout();
+            return buildInitialLayout();
           }
         },
       ),
@@ -66,43 +66,37 @@ class _BiographyPageState extends State<BiographyPage> {
   }
 
   Widget buildInitialLayout() => Center(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        InputField(
-          focusNode: nameFocus,
-          textController: nameController,
-          label: "Username",
-          icons: const Icon(
-            Icons.person,
-            color: Colors.blue,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InputField(
+              focusNode: nameFocus,
+              textController: nameController,
+              label: "Username",
+              icons: const Icon(
+                Icons.person,
+                color: Colors.blue,
+              ),
+            ),
+            HeightSpacer(myHeight: kSpacing),
+            InputField(
+              focusNode: jobFocus,
+              textController: jobController,
+              label: "Password",
+              icons: const Icon(Icons.work, color: Colors.blue),
+            ),
+            HeightSpacer(myHeight: kSpacing),
+            SearchButtonBuilder(
+              focusNode: searchBtnFocus,
+              name: nameController,
+              job: jobController,
+            ),
+          ],
         ),
-        HeightSpacer(myHeight: kSpacing),
-        InputField(
-          focusNode: jobFocus,
-          textController: jobController,
-          label: "Password",
-          icons: const Icon(Icons.work, color: Colors.blue),
-        ),
-        HeightSpacer(myHeight: kSpacing),
-        SearchButtonBuilder(
-          focusNode: searchBtnFocus,
-          name: nameController,
-          job: jobController,
-        ),
-
-        // Text(
-        //   data.categories.toString(),
-        //   style: const TextStyle(
-        //       color: Colors.blue, fontSize: 40.00, fontWeight: FontWeight.bold),
-        // ),
-      ],
-    ),
-  );
+      );
 
   Widget buildLoadedlayout(biographymodel data) => Center(
-      child: Padding(
+          child: Padding(
         padding: kHPadding * 2,
         child: ListTileBuilder(data),
       ));
