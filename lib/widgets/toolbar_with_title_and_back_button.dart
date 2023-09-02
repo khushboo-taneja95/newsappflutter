@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
-import 'package:newsapplication/constant/dimens.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 
 class ToolbarWithTitleAndBackbutton extends StatelessWidget {
   final Function? backFn;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 import 'package:newsapplication/screens/home/home_navigations.dart';
 
 class WelcomeScreen extends StatelessWidget {

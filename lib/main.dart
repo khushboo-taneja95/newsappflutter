@@ -15,9 +15,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Panthalassa',
         theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Panthalassa"),
-        initialRoute: "/",
-        onGenerateRoute: RouteGenerator().generateRoute);
-    // home: const SplashScreen());
+        home: const SplashScreen());
+
+    // initialRoute: "/",
+    // onGenerateRoute: RouteGenerator().generateRoute);
     // home: HomeNavigation(index: 0));
   }
 }

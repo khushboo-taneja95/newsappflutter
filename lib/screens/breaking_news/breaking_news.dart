@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 import 'package:newsapplication/widgets/toolbar_with_title_and_back_button.dart';
 import 'package:read_more_text/read_more_text.dart';
 

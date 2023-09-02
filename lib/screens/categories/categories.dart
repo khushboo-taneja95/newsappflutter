@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapplication/widgets/responsive_utils.dart';
 
-import '../../constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});

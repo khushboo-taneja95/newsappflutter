@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 import 'package:newsapplication/screens/categories/categories.dart';
 import 'package:newsapplication/screens/favourite/favourite.dart';
 import 'package:newsapplication/screens/home/home_screen.dart';
