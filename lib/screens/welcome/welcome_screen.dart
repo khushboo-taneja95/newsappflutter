@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 import 'package:newsapplication/screens/home/home_navigations.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -8,22 +8,54 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        leading: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
-        ),
-        title: const Text(
-          "Login",
-          style: TextStyle(color: Colors.black, fontSize: 14),
-        ),
-        backgroundColor: Colors.white,
-        centerTitle: true,
-      ),
-      body: SafeArea(
+      resizeToAvoidBottomInset: false,
+      body: Container(
+        height: double.infinity,
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/splash_background.jpg"),
+                fit: BoxFit.cover)),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (ctx) => HomeNavigation()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    width: 68,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF004aad),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Skip',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Center(
+              child: Image.asset("assets/splash_logo.png",
+                  height: 100, width: 200),
+            ),
+            const Text(
+              "Login",
+              style: TextStyle(fontSize: 14),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -89,7 +121,7 @@ class WelcomeScreen extends StatelessWidget {
                       'Sign in with google',
                       style: TextStyle(
                           fontSize: 14,
-                          color: PanthalassaColors.borderColorGrey,
+                          color: PanthalassaColors.colorBlack,
                           fontWeight: FontWeight.normal),
                     ),
                   ],
@@ -151,10 +183,10 @@ class WelcomeScreen extends StatelessWidget {
                     color: PanthalassaColors.colorRed,
                     border: Border.all(color: Colors.red),
                     borderRadius: const BorderRadius.all(Radius.circular(10))),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Login With Email Or Mobile',
                       style: TextStyle(
                           fontSize: 14,
@@ -172,13 +204,13 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   const Text(
                     'New User?',
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                    style: TextStyle(color: Colors.grey, fontSize: 8),
                   ),
                   TextButton(
                     child: const Text(
                       'SignUp',
                       style: TextStyle(
-                          color: PanthalassaColors.colorRed, fontSize: 12),
+                          color: PanthalassaColors.colorRed, fontSize: 8),
                     ),
                     onPressed: () {
                       //signup screen
@@ -188,7 +220,7 @@ class WelcomeScreen extends StatelessWidget {
                   const Text(
                     'Forgot Password',
                     style: TextStyle(
-                        color: PanthalassaColors.colorRed, fontSize: 12),
+                        color: PanthalassaColors.colorRed, fontSize: 8),
                   ),
                 ],
               ),
@@ -196,6 +228,21 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
+            const Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Padding(
+                    padding: EdgeInsets.only(bottom: 0.0),
+                    child: Text(
+                      "powered by",
+                      style: TextStyle(fontSize: 12),
+                    ))),
+            Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 0.0),
+                  child:
+                      Image.asset("assets/logo.png", height: 100, width: 1200),
+                )),
           ],
         ),
       ),
@@ -204,13 +251,13 @@ class WelcomeScreen extends StatelessWidget {
 
   Widget orDivider() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
       child: Row(
         children: [
           Flexible(
             child: Container(
-              height: 1,
-              color: PanthalassaColors.borderColorGrey,
+              height: 2,
+              color: const Color(0xFF004aad),
             ),
           ),
           const Padding(
@@ -225,8 +272,8 @@ class WelcomeScreen extends StatelessWidget {
           ),
           Flexible(
             child: Container(
-              height: 1,
-              color: PanthalassaColors.borderColorGrey,
+              height: 2,
+              color: const Color(0xFF004aad),
             ),
           ),
         ],

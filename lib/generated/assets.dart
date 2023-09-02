@@ -8,6 +8,7 @@ class Assets {
   static const String assetsActivefavourite = 'assets/activefavourite.png';
   static const String assetsActivehome = 'assets/activehome.png';
   static const String assetsApplelogo = 'assets/applelogo.png';
+  static const String assetsBackground = 'assets/background.jpg';
   static const String assetsCategories = 'assets/categories.png';
   static const String assetsFacebookicon = 'assets/facebookicon.png';
   static const String assetsFavourite = 'assets/favourite.png';
@@ -21,6 +22,7 @@ class Assets {
   static const String assetsIcRateTheApp = 'assets/ic_rate_the_app.png';
   static const String assetsKiara = 'assets/kiara.jpg';
   static const String assetsLogo = 'assets/logo.png';
+  static const String assetsLogonew = 'assets/logonew.png';
   static const String assetsLogowithback = 'assets/logowithback.png';
   static const String assetsMenu = 'assets/menu.png';
   static const String assetsNewsImages = 'assets/news_images.png';

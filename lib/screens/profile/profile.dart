@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsapplication/constant/colors.dart';
-import 'package:newsapplication/constant/styles.dart';
+import 'package:newsapplication/core/constant/styles.dart';
+import 'package:newsapplication/core/themes/colors.dart';
 import 'package:newsapplication/widgets/setting_item.dart';
 
 class ProfileScreen extends StatefulWidget {

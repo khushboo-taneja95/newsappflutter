@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapplication/panthalassa/presentation/Routes/generated_routes.dart';
 import 'package:newsapplication/screens/splash/splash_screen.dart';
 
 void main() async {
@@ -13,11 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Panthalassa',
-       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: "Panthalassa"
-      ),
+        theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Panthalassa"),
         home: const SplashScreen());
-        // home: HomeNavigation(index: 0));
+
+    // initialRoute: "/",
+    // onGenerateRoute: RouteGenerator().generateRoute);
+    // home: HomeNavigation(index: 0));
   }
 }
