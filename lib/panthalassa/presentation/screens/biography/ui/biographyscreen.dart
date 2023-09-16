@@ -26,6 +26,7 @@ class _BiographyPageState extends State<BiographyPage> {
   @override
   void initState() {
     super.initState();
+    SendData();
     nameFocus = FocusNode();
     jobFocus = FocusNode();
     searchBtnFocus = FocusNode();

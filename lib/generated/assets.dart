@@ -10,16 +10,21 @@ class Assets {
   static const String assetsApplelogo = 'assets/applelogo.png';
   static const String assetsBackground = 'assets/background.jpg';
   static const String assetsCategories = 'assets/categories.png';
+  static const String assetsDemohtml = 'assets/demohtml.html';
+  static const String assetsDetails = 'assets/details.jpg';
   static const String assetsFacebookicon = 'assets/facebookicon.png';
   static const String assetsFavourite = 'assets/favourite.png';
   static const String assetsGooglelogo = 'assets/googlelogo.png';
   static const String assetsHome = 'assets/home.png';
   static const String assetsIcBookmarks = 'assets/ic_bookmarks.png';
   static const String assetsIcEdit = 'assets/ic_edit.png';
+  static const String assetsIcGoogle = 'assets/ic_google.png';
   static const String assetsIcLogout = 'assets/ic_logout.png';
   static const String assetsIcNotifications = 'assets/ic_notifications.png';
   static const String assetsIcPrivacypolicy = 'assets/ic_privacypolicy.png';
   static const String assetsIcRateTheApp = 'assets/ic_rate_the_app.png';
+  static const String assetsIcSnapchat = 'assets/ic_snapchat.png';
+  static const String assetsIconWhatsapp = 'assets/icon_whatsapp.png';
   static const String assetsKiara = 'assets/kiara.jpg';
   static const String assetsLogo = 'assets/logo.png';
   static const String assetsLogonew = 'assets/logonew.png';
@@ -28,8 +33,12 @@ class Assets {
   static const String assetsNewsImages = 'assets/news_images.png';
   static const String assetsPakhead = 'assets/pakhead.png';
   static const String assetsPalito = 'assets/palito.jpg';
+  static const String assetsSample = 'assets/sample.pdf';
   static const String assetsSpace = 'assets/space.jpeg';
+  static const String assetsSplashBackground = 'assets/splash_background.jpg';
+  static const String assetsSplashLogo = 'assets/splash_logo.jpg';
   static const String fontsPanthalassa = 'assets/fonts/Panthalassa.ttf';
   static const String fontsPanthallasaRegular = 'assets/fonts/panthallasa_Regular.ttf';
+  static const String panthalassaAssetsSplashLogo = 'assets/splash_logo.png';
 
 }
